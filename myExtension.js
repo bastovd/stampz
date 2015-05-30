@@ -40,7 +40,7 @@ var html =
 		top:5%; \
 		right: 2%; \
 		position: absolute; \
-		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.jpg"); \
+		background: url("https://rawgit.com/bastovd/stampz/master/icon.png"); \
 		background-size: auto 100%; \
 	} \
 </style> \
