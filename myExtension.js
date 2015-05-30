@@ -28,9 +28,8 @@ var html =
 <title>virtual stamp</title> \
 <style> \
 	#stamp-container { \
-		width: 750px; \
-		height: 200px; \
-		background: #222; \
+		width: 500px; \
+		height: 150px; \
 		text-align:right; \
 		position:relative; \
 	} \
@@ -40,7 +39,7 @@ var html =
 		top:5%; \
 		right: 2%; \
 		position: absolute; \
-		background: url("https://rawgit.com/bastovd/stampz/master/icon.png"); \
+		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.png"); \
 		background-size: auto 100%; \
 	} \
 </style> \
