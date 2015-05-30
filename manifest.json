@@ -1,0 +1,26 @@
+{
+ "name": "Gmail injection",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Gmail API Extension",
+  
+  "browser_action": {
+	  "default_icon": "icon.png"
+  },
+ "content_scripts": [ {
+      "js": [ "load.js" ],
+      "matches": ["https://*.google.com/*"]
+   } ],
+  "background": {
+      "scripts": ["background.js"]
+   },
+   "permissions": [
+	"activeTab"
+   ],
+   "web_accessible_resources": [
+    "jquery-1.10.2.min.js",
+    "gmail.js",
+	"background.js",
+	"myExtension.js"
+  ]
+}
