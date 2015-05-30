@@ -10,6 +10,16 @@ var runCode = function() {
     console.log('new email!', id);
     window.postMessage({ "type": "new_email", "message_id": id }, "*");
   });
+  
+  alert(gmail.get.user_email());
+  
+  //observer for compose email
+  gmail.observe.on('compose', function(compose,type) {
+    window.setTimeout( function() {
+        compose.subject('THIS IS A TEST');
+        compose.body('<p>THIS IS MADNESS!!</p>');
+    },0);
+  });
 
 }
 
