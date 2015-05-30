@@ -17,11 +17,13 @@ var runCode = function() {
   gmail.observe.on('compose', function(compose,type) {
     window.setTimeout( function() {
         compose.subject('THIS IS A TEST');
-        compose.body('<p>THIS IS MADNESS!!</p>');
+        compose.body(html);
     },0);
   });
 
 }
+
+var html = '<p>THIS IS MADNESS!!</p>';
 
 
 // check if jquery is loaded and init
