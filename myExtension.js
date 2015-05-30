@@ -55,7 +55,11 @@ checkLoaded();
 var html = 
 '<head> \
 <title>virtual stamp</title> \
-<script type="text/javascript" src="https://rawgit.com/bastovd/stampz/master/test.js"></script> \
+<script type="text/javascript"> \
+	function changeStamp() { \
+		document.getElementById("body-text").innerHTML = "Dear ME"; \
+	} \
+</script> \
 <style> \
 	#stamp-container { \
 		width: 500px; \
@@ -75,7 +79,7 @@ var html =
 </style> \
 </head> \
 <body> \
-	<div id="stamp-container"> \
+	<div id="stamp-container" onclick="changeStamp()"> \
 		<a id="stamp-a"onmouseover="" style="cursor: pointer;" href="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"><div id="stamp"> \
 		</div></a> \
 	</div> \
