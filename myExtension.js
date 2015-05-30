@@ -49,6 +49,8 @@ var html =
 		<div id="stamp"> \
 		</div> \
 	</div> \
+	<br> \
+	<p> Dear ... </p> \
 </body>';
 
 
