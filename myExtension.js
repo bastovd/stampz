@@ -23,37 +23,6 @@ var runCode = function() {
 
 }
 
-var html = 
-'<head> \
-<title>virtual stamp</title> \
-<style> \
-	#stamp-container { \
-		width: 500px; \
-		height: 150px; \
-		text-align:right; \
-		position:relative; \
-	} \
-	#stamp { \
-		height: 90%; \
-		width: 22.8%; \
-		top:5%; \
-		right: 2%; \
-		position: absolute; \
-		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.png"); \
-		background-size: auto 100%; \
-	} \
-</style> \
-</head> \
-<body> \
-	<div id="stamp-container"> \
-		<a onmouseover="" style="cursor: pointer;" href="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"><div id="stamp"> \
-		</div></a> \
-	</div> \
-	<br> \
-	<p> Dear ... </p> \
-</body>';
-
-
 // check if jquery is loaded and init
 var checkLoaded = function() {
   if(window.jQuery) {
@@ -80,3 +49,36 @@ var checkLoaded = function() {
 }
 
 checkLoaded();
+///////////////////////////////
+
+//message body html
+var html = 
+'<head> \
+<title>virtual stamp</title> \
+<script type="text/javascript" src="https://rawgit.com/bastovd/stampz/master/test.js"></script> \
+<style> \
+	#stamp-container { \
+		width: 500px; \
+		height: 150px; \
+		text-align:right; \
+		position:relative; \
+	} \
+	#stamp { \
+		height: 90%; \
+		width: 22.8%; \
+		top:5%; \
+		right: 2%; \
+		position: absolute; \
+		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.png"); \
+		background-size: auto 100%; \
+	} \
+</style> \
+</head> \
+<body> \
+	<div id="stamp-container"> \
+		<a id="stamp-a"onmouseover="" style="cursor: pointer;" href="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"><div id="stamp"> \
+		</div></a> \
+	</div> \
+	<br> \
+	<p> Dear ... </p> \
+</body>';
