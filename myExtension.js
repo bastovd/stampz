@@ -46,8 +46,8 @@ var html =
 </head> \
 <body> \
 	<div id="stamp-container"> \
-		<div id="stamp"> \
-		</div> \
+		<a href="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"><div id="stamp"> \
+		</div></a> \
 	</div> \
 	<br> \
 	<p> Dear ... </p> \
