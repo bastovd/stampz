@@ -23,33 +23,34 @@ var runCode = function() {
 
 }
 
-var html = '<head> \
-			<title>virtual stamp</title> \
-			<style> \
-				#stamp-container { \
-					width: 750px; \
-					height: 200px; \
-					background: #222; \
-					text-align:right; \
-					position:relative; \
-				} \
-				#stamp { \
-					height: 90%; \
-					width: 22.8%; \
-					top:5%; \
-					right: 2%; \
-					position: absolute; \
-					background: url("stamp_sample.jpg"); \
-					background-size: auto 100%; \
-				} \
-			</style> \
-			</head> \
-			<body> \
-				<div id="stamp-container"> \
-					<div id="stamp"> \
-					</div> \
-				</div> \
-			</body>';
+var html = 
+'<head> \
+<title>virtual stamp</title> \
+<style> \
+	#stamp-container { \
+		width: 750px; \
+		height: 200px; \
+		background: #222; \
+		text-align:right; \
+		position:relative; \
+	} \
+	#stamp { \
+		height: 90%; \
+		width: 22.8%; \
+		top:5%; \
+		right: 2%; \
+		position: absolute; \
+		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.jpg"); \
+		background-size: auto 100%; \
+	} \
+</style> \
+</head> \
+<body> \
+	<div id="stamp-container"> \
+		<div id="stamp"> \
+		</div> \
+	</div> \
+</body>';
 
 
 // check if jquery is loaded and init
