@@ -1,15 +1,15 @@
 window.onload = function () {
 
   var jq = document.createElement('script');
-  jq.src = "https://s3-us-west-2.amazonaws.com/dbastov/jquery-1.10.2.min.js"
+  jq.src = "https://rawgit.com/bastovd/stampz/master/jquery-1.10.2.min.js"
   document.getElementsByTagName('body')[0].appendChild(jq)
 
   var sm = document.createElement('script');
-  sm.src = "https://s3-us-west-2.amazonaws.com/dbastov/gmail.js";
+  sm.src = "https://rawgit.com/bastovd/stampz/master/gmail.js";
   document.getElementsByTagName('body')[0].appendChild(sm);
 
   var sm = document.createElement('script');
-  sm.src = "https://s3-us-west-2.amazonaws.com/dbastov/myExtension.js";
+  sm.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
   document.getElementsByTagName('body')[0].appendChild(sm);
 
   window.addEventListener("message", function(event) {
