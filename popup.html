@@ -24,11 +24,38 @@
 		height:200px;
 	  }
 	  #store-frame {
-		width:400px;
-		height:400px
+		width:100%;
+		height:100%;
+		border: none
+	  }
+	  #store-div {
+		width: 100%;
+		height: 60%;
+		border: solid 5px;
+		margin:-5px
+	  }
+	  #capsule-div {
+		width:500px;
+		height:500px;
+	  }
+	  #header {
+		width:100%;
+		height:20%;
+		text-align: center;
+		font-family: inherit;
+		font-size: xx-large;
+	  }
+	  #stamp-selector {
+		width:100%;
+		height:20%;
+		border:solid 1px;
+	  }
+	  .stamp-image {
+		height:100%;
+		margin: 2px;
 	  }
     </style>
-
+	<script src="popup.js"></script>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -37,8 +64,19 @@
      -->
   </head>
   <body>
-    <iframe id="store-frame" src="http://denysbastov.com">
-	</iframe>
+	<div id="capsule-div">
+		<div id="header">
+			<p id="header-title" onclick="closeWindow()" style="cursor:pointer">LoveStamps</p>
+		</div>
+		<div id="stamp-selector">
+			<img class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"/>
+			<img class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"/>
+		</div>
+		<div id="store-div">
+			<iframe id="store-frame" src="https://denys-bastov-c523.squarespace.com/config#/|/">
+			</iframe>
+		</div>	
+	</div>
   </body>
 </html>
 
