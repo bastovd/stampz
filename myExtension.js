@@ -12,13 +12,22 @@ var runCode = function() {
   });
   
   alert(gmail.get.user_email());
+  gmail.tools.add_toolbar_button('content_html', function() {
+  // Code here
+  }, 'Custom Style Classes');
   //image_address = image_address_default;
   
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
     window.setTimeout( function() {
-		//var navigation_bar = document.findElementBuId(":nt");
-		//alert("what");
+		
+		//add compose button
+		/*var compose_ref = gmail.dom.composes()[0];
+		gmail.tools.add_compose_button(compose_ref, 'content_html', function() {
+		  // Code here
+		}, 'Custom Style Classes');*/
+		///////////////////////////
+		
         compose.subject('THIS IS A TEST');
         compose.body(html);
     },0);
