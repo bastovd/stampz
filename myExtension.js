@@ -25,10 +25,10 @@ var runCode = function() {
     window.setTimeout( function() {
 		
 		//add compose button
-		/*var compose_ref = gmail.dom.composes()[0];
+		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, 'content_html', function() {
 		  // Code here
-		}, 'Custom Style Classes');*/
+		}, 'Custom Style Classes');
 		///////////////////////////
 		
         compose.subject('TEST');
