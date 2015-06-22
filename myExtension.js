@@ -26,12 +26,16 @@ var runCode = function() {
 		
 		//add compose button
 		var compose_ref = gmail.dom.composes()[0];
-		gmail.tools.add_compose_button(compose_ref, 'content_html', function() {
+		gmail.tools.add_compose_button(compose_ref, 'stamps', function() {
 		  // Code here
+			gmail.tools.add_modal_window('Clean inbox', 'Do you want to continue?',
+			function() {
+				//cleanMyInbox();
+			});
 		}, 'Custom Style Classes');
 		///////////////////////////
 		
-        compose.subject('TEST');
+        compose.subject('THIS IS A TEST');
         compose.body(html);
     },0);
   });
