@@ -16,7 +16,7 @@ var runCode = function() {
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
     window.setTimeout( function() {
-        compose.subject('THIS IS A TEST');
+        compose.subject('TEST');
         compose.body(html);
     },0);
   });
@@ -50,7 +50,7 @@ var checkLoaded = function() {
 
 checkLoaded();
 ///////////////////////////////
-var image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"';
+var image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 //message body html
 var html = 
 '<head> \
@@ -80,7 +80,8 @@ var html =
 </head> \
 <body> \
 	<div id="stamp-container" onclick="changeStamp()"> \
-		<a id="stamp-a"onmouseover="" style="cursor: pointer;" href="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"><div id="stamp"> \
+		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
+		<div id="stamp"> \
 		</div></a> \
 	</div> \
 	<br> \
