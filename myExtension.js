@@ -12,17 +12,27 @@ var runCode = function() {
   });
   
   alert(gmail.get.user_email());
+  //image_address = image_address_default;
   
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
     window.setTimeout( function() {
-		var navigation_bar = document.findElementBuId(":nt");
-		alert("what");
-        compose.subject('TEST');
+		//var navigation_bar = document.findElementBuId(":nt");
+		//alert("what");
+        compose.subject('THIS IS A TEST');
         compose.body(html);
     },0);
   });
+}
 
+//construct message body
+var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
+var image_address;
+
+var constructMessageBody = function(compose, img) {
+	//image_address = img;
+	image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
+	compose.body(html);
 }
 
 // check if jquery is loaded and init
