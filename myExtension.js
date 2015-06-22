@@ -16,6 +16,8 @@ var runCode = function() {
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
     window.setTimeout( function() {
+		var navigation_bar = document.findElementBuId(":nt");
+		alert("what");
         compose.subject('TEST');
         compose.body(html);
     },0);
@@ -85,5 +87,5 @@ var html =
 		</div></a> \
 	</div> \
 	<br> \
-	<p> Dear ... </p> \
+	<p id="body-text"> Dear ... </p> \
 </body>';
