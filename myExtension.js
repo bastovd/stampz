@@ -73,7 +73,7 @@ var html =
 		top:5%; \
 		right: 2%; \
 		position: absolute; \
-		background: url(' + image_address + '); \
+		background: url(' + '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"' + '); \
 		background-size: auto 100%; \
 	} \
 </style> \
