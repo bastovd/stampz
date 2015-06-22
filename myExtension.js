@@ -50,7 +50,7 @@ var checkLoaded = function() {
 
 checkLoaded();
 ///////////////////////////////
-
+var image_address = "https://rawgit.com/bastovd/stampz/master/stamp_sample2.png";
 //message body html
 var html = 
 '<head> \
@@ -73,7 +73,7 @@ var html =
 		top:5%; \
 		right: 2%; \
 		position: absolute; \
-		background: url("https://rawgit.com/bastovd/stampz/master/stamp_sample.png"); \
+		background: url(' + image_address + '); \
 		background-size: auto 100%; \
 	} \
 </style> \
