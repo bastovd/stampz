@@ -12,9 +12,12 @@ var runCode = function() {
   });
   
   alert(gmail.get.user_email());
+  
+  //add button to toolbar
   gmail.tools.add_toolbar_button('content_html', function() {
   // Code here
   }, 'Custom Style Classes');
+  ///////////////////////
   //image_address = image_address_default;
   
   //observer for compose email
@@ -28,7 +31,7 @@ var runCode = function() {
 		}, 'Custom Style Classes');*/
 		///////////////////////////
 		
-        compose.subject('THIS IS A TEST');
+        compose.subject('TEST');
         compose.body(html);
     },0);
   });
@@ -38,10 +41,11 @@ var runCode = function() {
 var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 var image_address;
 
-var constructMessageBody = function(compose, img) {
+var constructMessageBody = function(img) {
+	var compose_ref = gmail.dom.composes()[0];
 	//image_address = img;
 	image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
-	compose.body(html);
+	compose_ref.body(html);
 }
 
 // check if jquery is loaded and init
