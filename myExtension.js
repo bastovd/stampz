@@ -28,10 +28,10 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
-			gmail.tools.add_modal_window('Stamps', modal_html,
-			function() {
+			gmail.tools.add_modal_window('Stamps', modal_html, onClickOk, onClickCancel, onClickClose);
+			/*function() {
 				//cleanMyInbox();
-			});
+			});*/
 		}, modal_css);
 		///////////////////////////
 		
@@ -84,14 +84,16 @@ checkLoaded();
 
 /*------MODAL WINDOW LISTENER FNCTS-------*/
 var onClickOk = function() {
+	alert("ok called");
 	constructMessageBody(2);
 }
 
 var onClickCancel = function() {
-
+	alert("cancel called");
 }
 
 var onClickClose = function() {
+	alert("close called");
 	constructMessageBody(2);
 }
 /*-------END MODAL WINDOW LISTENER FNCTS------*/
