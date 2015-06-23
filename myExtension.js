@@ -126,38 +126,20 @@ var modal_html =
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif; \
         font-size: 100%; \
       } \
-      #status { \
-        /* avoid an excessively wide status text */ \
-        white-space: pre; \
-        text-overflow: ellipsis; \
-        overflow: hidden; \
-        max-width: 400px; \
-      } \
 	  #email { \
 		width:80%; \
 		height:200px; \
 	  } \
-	  #store-frame { \
-		width:100%; \
-		height:100%; \
-		border: none \
-	  } \
-	  #store-div { \
-		width: 100%; \
-		height: 60%; \
-		border: solid 5px; \
-		margin-left:-5px \
-	  } \
 	  #capsule-div { \
-		width:500px; \
-		height:500px; \
+		//width:500px; \
+		//height:500px; \
 	  } \
 	  #header { \
 		width:100%; ]\
 		height:20%; \
 		text-align: center; \
 		font-family: inherit; \
-		font-size: xx-large; \
+		font-size: large; \
 	  } \
 	  #stamp-selector { \
 		width:100%; \
