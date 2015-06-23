@@ -131,8 +131,8 @@ var modal_html =
 		height:200px; \
 	  } \
 	  #capsule-div { \
-		//width:500px; \
-		//height:500px; \
+		width:500px; \
+		height:500px; \
 	  } \
 	  #header { \
 		width:100%; ]\
