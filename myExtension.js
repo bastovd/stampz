@@ -14,7 +14,7 @@ var runCode = function() {
   alert(gmail.get.user_email());
   
   //add button to toolbar
-  gmail.tools.add_toolbar_button('stamp', function() {
+  gmail.tools.add_toolbar_button('stamps', function() {
   // Code here
   }, 'Custom Style Classes');
   ///////////////////////
@@ -46,6 +46,7 @@ var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sam
 var image_address;
 
 var constructMessageBody = function(img) {
+	alert("ok called");
 	var compose_ref = gmail.dom.composes()[0];
 	alert("changing");
 	//image_address = img;
@@ -84,16 +85,13 @@ checkLoaded();
 
 /*------MODAL WINDOW LISTENER FNCTS-------*/
 var onClickOk = function() {
-	alert("ok called");
 	constructMessageBody(2);
 }
 
 var onClickCancel = function() {
-	alert("cancel called");
 }
 
 var onClickClose = function() {
-	alert("close called");
 	constructMessageBody(2);
 }
 /*-------END MODAL WINDOW LISTENER FNCTS------*/
