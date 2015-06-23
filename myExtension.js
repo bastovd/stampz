@@ -26,7 +26,7 @@ var runCode = function() {
 		
 		//add compose button
 		var compose_ref = gmail.dom.composes()[0];
-		gmail.tools.add_compose_button(compose_ref, 'stamps', function() {
+		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
 			gmail.tools.add_modal_window('Stamps', modal_html,
 			function() {
