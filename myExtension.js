@@ -178,11 +178,6 @@ var modal_html =
   </head> \
   <body> \
 	<div id="capsule-div"> \
-		<div id="navigation"> \
-			<div class="nav-button" id="close_button"> \
-				<p style="cursor:pointer">Close</p> \
-			</div> \
-		</div> \
 		<div id="header"> \
 			<p id="header-title" >LoveStamps</p> \
 		</div> \
@@ -190,12 +185,11 @@ var modal_html =
 			<img id="stamp_1" class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"/> \
 			<img id="stamp_2" class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"/> \
 		</div> \
-		<div id="store-div"> \
-			<!--<iframe id="store-frame" src="https://denys-bastov-c523.squarespace.com/config#/|/"> \
-			</iframe>--> \
-		</div>	\
 	</div> \
  <!--load supporting scripts --> \
   <script src="popup.js"></script> \
   </body> \
 </html>';
+
+var compose_button_html =
+'<img src="https://rawgit.com/bastovd/stampz/master/icon.png" width="24px" height="24px" />';
