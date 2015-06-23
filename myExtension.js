@@ -14,7 +14,7 @@ var runCode = function() {
   alert(gmail.get.user_email());
   
   //add button to toolbar
-  gmail.tools.add_toolbar_button('stamps', function() {
+  gmail.tools.add_toolbar_button('stamp', function() {
   // Code here
   }, 'Custom Style Classes');
   ///////////////////////
@@ -47,6 +47,7 @@ var image_address;
 
 var constructMessageBody = function(img) {
 	var compose_ref = gmail.dom.composes()[0];
+	alert("changing");
 	//image_address = img;
 	image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
 	compose_ref.body(html);
@@ -142,6 +143,60 @@ var modal_html =
 '<html> \
   <head> \
   <title>LoveStamps</title> \
+  <style> \
+  body { \
+font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif; \
+font-size: 100%; \
+} \
+#status { \
+/* avoid an excessively wide status text */ \
+white-space: pre; \
+text-overflow: ellipsis; \
+overflow: hidden; \
+max-width: 400px; \
+} \
+#email { \
+width:80%; \
+height:200px; \
+} \
+#store-frame { \
+width:100%; \
+height:100%; \
+border: none \
+} \
+#store-div { \
+width: 100%; \
+height: 60%; \
+border: solid 5px; \
+margin-left:-5px \
+} \
+#capsule-div { \
+width:500px; \
+height:500px; \
+} \
+#header { \
+width:100%; ]\
+height:20%; \
+text-align: center; \
+font-family: inherit; \
+font-size: xx-large; \
+} \
+#stamp-selector { \
+width:100%; \
+height:20%; \
+border:solid 1px; \
+padding: 5px; \
+margin-left:-5px \
+} \
+#navigation { \
+text-align: right; \
+} \
+.stamp-image { \
+height:100%; \
+margin: 2px; \
+cursor: pointer; \
+} \
+  </style> \
   </head> \
   <body> \
 	<div id="capsule-div"> \
