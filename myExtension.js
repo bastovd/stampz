@@ -14,7 +14,7 @@ var runCode = function() {
   alert(gmail.get.user_email());
   
   //add button to toolbar
-  gmail.tools.add_toolbar_button('stamps', function() {
+  gmail.tools.add_toolbar_button('stamp', function() {
   // Code here
   }, 'Custom Style Classes');
   ///////////////////////
