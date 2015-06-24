@@ -32,26 +32,19 @@ var runCode = function() {
 		  // Code here
 			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
-					alert(gmail.dom.composes());
 					var compose_ref = gmail.dom.composes()[0];
-					alert("changing");
 					//image_address = img;
-					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
+					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+					alert("changing");
 					compose_ref.body(html);
 				}, 
 				function() { //cancel
 					window.close();
-				},
-				function() { //close
-					constructMessageBody(2);
 				});
-			/*function() {
-				//cleanMyInbox();
-			});*/
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS TEST');
+        compose.subject('THIS IS TEST');
         compose.body(html);
     },0);
   });
