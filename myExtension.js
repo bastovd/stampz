@@ -24,6 +24,7 @@ var runCode = function() {
   }, 'Custom Style Classes');
   ///////////////////////
   image_address = image_address_default;
+  setBodyHTML();
   
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
@@ -47,7 +48,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS IS TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
@@ -110,7 +111,9 @@ var onClickClose = function() {
 
 /////////////////HTML layouts//////////////
 //message body html
-var html = 
+var html = '';
+var setBodyHTML = function() {
+html =  
 '<head> \
 <title>virtual stamp</title> \
 <script type="text/javascript"> \
@@ -145,6 +148,7 @@ var html =
 	<br> \
 	<p id="body-text"> Dear ... </p> \
 </body>';
+}
 
 //modal window html
 var modal_html =
