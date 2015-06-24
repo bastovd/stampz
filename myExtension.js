@@ -49,7 +49,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS IS TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
@@ -113,7 +113,7 @@ var onClickClose = function() {
 /////////////////HTML layouts//////////////
 //message body html
 var html = '';
-var setBodyHTML = function() {
+function setBodyHTML() {
 html =  
 '<head> \
 <title>virtual stamp</title> \
