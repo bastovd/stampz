@@ -1,6 +1,8 @@
 // gmail code
+var gmail;
+
 var runCode = function() {
-  var gmail = Gmail();
+  gmail = Gmail();
   var email_data = gmail.get.email_data();
   if(email_data) {
     window.postMessage({"type" : "edata", "str_data" : JSON.stringify(email_data) }, '*');
@@ -28,14 +30,28 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
-			gmail.tools.add_modal_window('Stamps', modal_html, onClickOk, onClickCancel, onClickClose);
+			gmail.tools.add_modal_window('Stamps', modal_html, 
+				function() { //ok
+					alert(gmail.dom.composes());
+					var compose_ref = gmail.dom.composes()[0];
+					alert("changing");
+					//image_address = img;
+					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
+					compose_ref.body(html);
+				}, 
+				function() { //cancel
+					window.close();
+				},
+				function() { //close
+					constructMessageBody(2);
+				});
 			/*function() {
 				//cleanMyInbox();
 			});*/
 		}, '');
 		///////////////////////////
 		
-        compose.subject('TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
