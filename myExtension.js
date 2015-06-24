@@ -2,7 +2,7 @@
 var gmail;
 //construct message body
 var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
-var image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
+//var image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 
 var runCode = function() {
   gmail = Gmail();
@@ -23,7 +23,7 @@ var runCode = function() {
   // Code here
   }, 'Custom Style Classes');
   ///////////////////////
-  //image_address = image_address_default;
+  image_address = image_address_default;
   
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
