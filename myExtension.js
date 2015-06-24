@@ -41,19 +41,6 @@ var runCode = function() {
   });
 }
 
-//construct message body
-var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
-var image_address;
-
-var constructMessageBody = function(img) {
-	alert("ok called");
-	var compose_ref = gmail.dom.composes()[0];
-	alert("changing");
-	//image_address = img;
-	image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
-	compose_ref.body(html);
-}
-
 // check if jquery is loaded and init
 var checkLoaded = function() {
   if(window.jQuery) {
@@ -80,7 +67,20 @@ var checkLoaded = function() {
 }
 
 checkLoaded();
+///////////END SETUP///////////////////////////
 
+//construct message body
+var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
+var image_address;
+
+var constructMessageBody = function(img) {
+	alert(gmail.dom.composes());
+	var compose_ref = gmail.dom.composes();
+	alert("changing");
+	//image_address = img;
+	image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample' + img + '.png"'
+	compose_ref.body(html);
+}
 
 
 /*------MODAL WINDOW LISTENER FNCTS-------*/
@@ -89,6 +89,7 @@ var onClickOk = function() {
 }
 
 var onClickCancel = function() {
+	window.close();
 }
 
 var onClickClose = function() {
