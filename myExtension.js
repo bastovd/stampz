@@ -39,6 +39,7 @@ var runCode = function() {
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
 					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+					setBodyHTML();
 					compose_ref.body(html);
 					alert("done");
 				}, 
@@ -48,7 +49,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS TEST');
+        compose.subject('THIS IS TEST');
         compose.body(html);
     },0);
   });
