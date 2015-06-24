@@ -35,16 +35,16 @@ var runCode = function() {
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
 					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-					alert("changing");
+					alert(compose_ref.subject());
 					compose_ref.body(html);
 				}, 
 				function() { //cancel
-					window.close();
+				
 				});
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS IS TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
