@@ -47,7 +47,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS IS TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
