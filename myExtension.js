@@ -2,7 +2,7 @@
 var gmail;
 //construct message body
 var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
-//var image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
+var image_address;// = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 
 var runCode = function() {
   gmail = Gmail();
@@ -47,7 +47,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS TEST');
+        compose.subject('THIS IS TEST');
         compose.body(html);
     },0);
   });
