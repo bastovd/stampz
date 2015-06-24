@@ -47,7 +47,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS IS TEST');
+        compose.subject('THIS TEST');
         compose.body(html);
     },0);
   });
@@ -149,8 +149,7 @@ var html =
 
 //modal window html
 var modal_html =
-'<html> \
-  <head> \
+'<head> \
     <title>LoveStamps</title> \
     <style> \
       body { \
@@ -203,10 +202,7 @@ var modal_html =
 			<img id="stamp_2" class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"/> \
 		</div>	\
 	</div> \
-  <!--load supporting scripts --> \
-  <script src="popup.js"></script> \
-  </body> \
-</html>';
+</body>';
 
 var compose_button_html =
 '<img src="https://rawgit.com/bastovd/stampz/master/icon.png" width="24px" height="24px" />';
