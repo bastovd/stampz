@@ -152,8 +152,16 @@ html =
 }
 
 //modal window html
-var modal_html =
-'<head> \
+var modal_html = '';
+var client = new XMLHttpRequest();
+client.open('GET', '/modal.html');
+client.onreadystatechange = function() {
+	//alert(client.responseText);
+	modal_html += client.responseText; 
+}
+client.send();
+
+var temp = '<head> \
     <title>LoveStamps</title> \
     <style> \
       body { \
@@ -209,10 +217,6 @@ var modal_html =
 </body>';
 
 var html_modal = '';
-$.get('/backbone.html', function(data) {
-  html_modal += data;
-  alert(html_modal);
-});
 
 var compose_button_html =
 '<img src="https://rawgit.com/bastovd/stampz/master/icon.png" width="24px" height="24px" />';
