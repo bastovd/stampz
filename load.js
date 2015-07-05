@@ -8,29 +8,29 @@ window.onload = function () {
   sm.src = "https://rawgit.com/bastovd/stampz/master/gmail.js";
   document.getElementsByTagName('body')[0].appendChild(sm);
 
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var me = document.createElement('script');
+  me.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
+  document.getElementsByTagName('body')[0].appendChild(me);
   
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/underscore-min.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var us = document.createElement('script');
+  us.src = "https://rawgit.com/bastovd/stampz/master/underscore-min.js";
+  document.getElementsByTagName('body')[0].appendChild(us);
   
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/backbone-min.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var bb = document.createElement('script');
+  bb.src = "https://rawgit.com/bastovd/stampz/master/backbone-min.js";
+  document.getElementsByTagName('body')[0].appendChild(bb);
   
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/jquery.sharer.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var js = document.createElement('script');
+  js.src = "https://rawgit.com/bastovd/stampz/master/jquery.sharer.js";
+  document.getElementsByTagName('body')[0].appendChild(js);
   
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/parse-1.4.2.min.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var pa = document.createElement('script');
+  pa.src = "https://rawgit.com/bastovd/stampz/master/parse-1.4.2.min.js";
+  document.getElementsByTagName('body')[0].appendChild(pa);
   
-  sm = document.createElement('script');
-  sm.src = "https://rawgit.com/bastovd/stampz/master/backbone-examples.js";
-  document.getElementsByTagName('body')[0].appendChild(sm);
+  var be = document.createElement('script');
+  be.src = "https://rawgit.com/bastovd/stampz/master/backbone-examples.js";
+  document.getElementsByTagName('body')[0].appendChild(be);
   
   /*-----------modal files---------------*/
 	var bcss = document.createElement("link"); //backbone.css
