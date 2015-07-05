@@ -37,6 +37,12 @@
 		</div>
 	</div>
 	<!--scripts-->
+	<script type="text/javascript">
+		var backbone_css = '';
+		$.get('/backbone.css', function(data) {
+			backbone_css = data;
+		});
+	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="jquery.sharer.js"></script>
 	<script type="text/javascript">$("#sharer-container").sharer()</script>
