@@ -2020,7 +2020,7 @@ var Gmail = function(localJQuery) {
     
     var center = function() {
       container.css({
-        top: ($(window).height() - container.outerHeight()) / 2,
+        top: 0,
         left: ($(window).width() - container.outerWidth()) / 2
       });
     };
