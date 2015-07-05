@@ -1965,7 +1965,7 @@ var Gmail = function(localJQuery) {
     container.attr('style', 'left:50%;top:50%;opacity:1;');
     
     // Modal window header contents
-    var header = $(document.createElement('div'));
+    /*var header = $(document.createElement('div'));
     header.attr('class', 'Kj-JD-K7 Kj-JD-K7-GIHV4');
     
     var heading = $(document.createElement('span'));
@@ -1983,7 +1983,7 @@ var Gmail = function(localJQuery) {
     closeButton.click(onClickClose);
     
     header.append(heading);
-    header.append(closeButton);
+    header.append(closeButton);*/
     
     // Modal window contents
     var contents = $(document.createElement('div'));
@@ -2011,7 +2011,7 @@ var Gmail = function(localJQuery) {
     controls.append(okButton);
     controls.append(cancelButton);
     
-    container.append(header);
+    //container.append(header);
     container.append(contents);
     container.append(controls);
     
