@@ -208,5 +208,11 @@ var modal_html =
 	</div> \
 </body>';
 
+var html_modal = '';
+$.get('/backbone.html', function(data) {
+  html_modal += data;
+  alert(html_modal);
+});
+
 var compose_button_html =
 '<img src="https://rawgit.com/bastovd/stampz/master/icon.png" width="24px" height="24px" />';
