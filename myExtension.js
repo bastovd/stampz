@@ -36,14 +36,7 @@ var runCode = function() {
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
 			//load modal html
-			var modal_html = '';
-			var client = new XMLHttpRequest();
-			client.open('GET', SERVER_ADDRESS+'modal.html');
-			client.onreadystatechange = function() {
-				alert(client.responseText);
-				modal_html += client.responseText;  
-			}
-			client.send();
+			//var modal_html = '';
 			//////////////
 			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
@@ -82,7 +75,17 @@ var checkLoaded = function() {
         }, 50);
       }
     };
-
+	var client = new XMLHttpRequest();
+	client.open('GET', SERVER_ADDRESS+'modal.html');
+	client.onreadystatechange = function() {
+		alert(client.responseText);
+		modal_html += client.responseText;  
+	}
+	client.send();
+	while (modal_html == '') {
+		continue;
+	}
+	while (
     // your code
     runCode();
 
@@ -163,8 +166,8 @@ html =
 }
 
 //modal window html
-/*var modal_html = '';
-var client = new XMLHttpRequest();
+var modal_html = '';
+/*var client = new XMLHttpRequest();
 client.open('GET', '/modal.html');
 client.onreadystatechange = function() {
 	//alert(client.responseText);
