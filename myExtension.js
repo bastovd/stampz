@@ -1,6 +1,7 @@
 // gmail code
 var gmail;
 //construct message body
+var SERVER_ADDRESS = "https://rawgit.com/bastovd/stampz/master/";
 var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 var image_address;// = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 
@@ -37,7 +38,7 @@ var runCode = function() {
 			//load modal html
 			var modal_html = '';
 			var client = new XMLHttpRequest();
-			client.open('GET', '/modal.html');
+			client.open('GET', SERVER_ADDRESS+'modal.html');
 			client.onreadystatechange = function() {
 				alert(client.responseText);
 				modal_html += client.responseText;  
