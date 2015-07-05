@@ -1953,7 +1953,7 @@ var Gmail = function(localJQuery) {
     background.attr('id','gmailJsModalBackground');
     background.attr('class','Kj-JD-Jh');
     background.attr('aria-hidden','true');
-    background.attr('style','opacity:0.75;width:100%;height:100%;');
+    background.attr('style','opacity:0.75;width:100%;height:100%;background:#222');
     
     // Modal window wrapper
     var container = $(document.createElement('div'));
@@ -2021,7 +2021,9 @@ var Gmail = function(localJQuery) {
     var center = function() {
       container.css({
         top: 0,
-        left: ($(window).width() - container.outerWidth()) / 2
+        left: ($(window).width() - container.outerWidth()) / 2,
+		width : ($('#main-container').css('width'),
+		height : ($('#main-container').css('height')
       });
     };
     
