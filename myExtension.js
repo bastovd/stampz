@@ -34,6 +34,16 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
+			//load modal html
+			var modal_html = '';
+			var client = new XMLHttpRequest();
+			client.open('GET', '/modal.html');
+			client.onreadystatechange = function() {
+				alert(client.responseText);
+				modal_html += client.responseText;  
+			}
+			client.send();
+			//////////////
 			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
 					var compose_ref = gmail.dom.composes()[0];
@@ -152,14 +162,14 @@ html =
 }
 
 //modal window html
-var modal_html = '';
+/*var modal_html = '';
 var client = new XMLHttpRequest();
 client.open('GET', '/modal.html');
 client.onreadystatechange = function() {
 	//alert(client.responseText);
 	modal_html += client.responseText;  
 }
-client.send();
+client.send();*/
 
 var temp = '<head> \
     <title>LoveStamps</title> \
