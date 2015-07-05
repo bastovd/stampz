@@ -2029,17 +2029,22 @@ var Gmail = function(localJQuery) {
     
     $(document.body).append(background);
     $(document.body).append(container);
-    
+	
+    var setContainerSize = function() {
+		container.css({
+			width : ($('#main-container').css('width')),
+			height : ($('#main-container').css('height'))
+		});
+	};
+	
     var center = function() {
       container.css({
         top: ($(window).height() - container.outerHeight()) / 2,
-        left: ($(window).width() - container.outerWidth()) / 2,
-		width : ($('#main-container').css('width')),
-		height : ($('#main-container').css('height'))
+        left: ($(window).width() - container.outerWidth()) / 2
       });
     };
-    
-	alert($(window).height() + ' ' + $(window).width());
+ 
+	setContainerSize();
     center();
     
     $(window).resize(center);
