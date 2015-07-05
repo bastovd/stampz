@@ -84,9 +84,6 @@ var checkLoaded = function() {
 			modal_html += file_html;
 			//alert('success : ' + file_html);
 		}
-		error : function () {
-			alert('error');
-		}
 	});
 	/*client.open('GET', SERVER_ADDRESS+'modal.html');
 	client.onreadystatechange = function() {
