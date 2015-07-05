@@ -13,7 +13,7 @@ window.onload = function () {
   document.getElementsByTagName('body')[0].appendChild(sm);
   
   var bcss = document.createElement('style');
-  bcss.src = "https://rawgit.com/bastovd/stampz/master/backbone.css";
+  bcss.href = "https://rawgit.com/bastovd/stampz/master/backbone.css";
   document.getElementsByTagName('head')[0].appendChild(bcss);
 
   window.addEventListener("message", function(event) {
