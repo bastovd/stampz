@@ -2,7 +2,7 @@
 var gmail;
 //construct message body
 var SERVER_ADDRESS = "https://rawgit.com/bastovd/stampz/master/";
-var image_address_default = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
+var image_address_default = '"https://rawgit.com/bastovd/stampz/master/0-thumbnail.png"';
 var image_address;// = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 
 var runCode = function() {
@@ -39,10 +39,10 @@ var runCode = function() {
 				function() { //ok
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
-					image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 					setBodyHTML();
 					compose_ref.body(html);
-					alert("done");
+					alert(image_address);
 				}, 
 				function() { //cancel
 					$(window).remove();
@@ -54,6 +54,10 @@ var runCode = function() {
         compose.body(html);
     },0);
   });
+}
+
+var setStamp = function(img) {
+	image_address = img;
 }
 
 // check if jquery is loaded and init

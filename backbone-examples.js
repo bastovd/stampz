@@ -148,6 +148,7 @@ $.fn.backbone = function() {
                 .prop('src', photo.get('large'));
             
             this.$el.append(img);
+			setStamp(img); //set stamp as selected in myExtension.js
             
             return this;
         },
