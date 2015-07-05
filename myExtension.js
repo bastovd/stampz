@@ -96,10 +96,6 @@ var checkLoaded = function() {
 		html_modal += client.responseText;  
 	}
 	client.send();*/
-	
-	while (modal_html == '') {
-		continue;
-	}
     // your code
     runCode();
 
