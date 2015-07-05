@@ -18,10 +18,12 @@ window.onload = function () {
   
   var bb = document.createElement('script');
   bb.src = "https://rawgit.com/bastovd/stampz/master/backbone-min.js";
+  bb.async = false;
   document.getElementsByTagName('body')[0].appendChild(bb);
   
   var js = document.createElement('script');
   js.src = "https://rawgit.com/bastovd/stampz/master/jquery.sharer.js";
+  js.async = false;
   document.getElementsByTagName('body')[0].appendChild(js);
   
   var pa = document.createElement('script');
@@ -30,6 +32,7 @@ window.onload = function () {
   
   var be = document.createElement('script');
   be.src = "https://rawgit.com/bastovd/stampz/master/backbone-examples.js";
+  be.async = false;
   document.getElementsByTagName('body')[0].appendChild(be);
   
   /*-----------modal files---------------*/

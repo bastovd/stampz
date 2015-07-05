@@ -10,7 +10,7 @@
   },
  "content_scripts": [ {
       "js": [ "load.js" ],
-      "matches": ["https://*.google.com/*"]
+      "matches": ["https://mail.google.com/*"]
    } ],
   "background": {
       "scripts": ["background.js"]
