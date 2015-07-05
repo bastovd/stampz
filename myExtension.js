@@ -157,7 +157,7 @@ var client = new XMLHttpRequest();
 client.open('GET', '/modal.html');
 client.onreadystatechange = function() {
 	//alert(client.responseText);
-	modal_html += client.responseText; 
+	modal_html += client.responseText;  
 }
 client.send();
 
