@@ -85,7 +85,6 @@ var checkLoaded = function() {
 	while (modal_html == '') {
 		continue;
 	}
-	while (
     // your code
     runCode();
 
