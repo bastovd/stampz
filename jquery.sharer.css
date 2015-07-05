@@ -1,0 +1,33 @@
+.sharer-icon {
+  background-image: url('sharer-s-round.png');
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+.sharer-icon.sharer-icon-facebook {
+  background-position: 0 0;
+}
+.sharer-icon.sharer-icon-twitter {
+  background-position: -40px 0;
+}
+.sharer-icon.sharer-icon-linkedin {
+  background-position: -80px 0;
+}
+.sharer-icon.sharer-icon-tumblr {
+  background-position: -120px 0;
+}
+.sharer-icon.sharer-icon-googleplus {
+  background-position: -160px 0;
+}
+.sharer-icon.sharer-icon-reddit {
+  background-position: -200px 0;
+}
+.sharer-icon.sharer-icon-pinterest {
+  background-position: -240px 0;
+}
+.sharer-icon.sharer-icon-stumbleupon {
+  background-position: -280px 0;
+}
+.sharer-icon.sharer-icon-taringa {
+  background-position: -320px 0;
+}

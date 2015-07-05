@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>LoveStamp</title>
+	<link rel="stylesheet" type="text/css" href="backbone.css">
+	<link rel="stylesheet" type="text/css" href="jquery.sharer.css">
+</head>
+
+<body>
+	<div id="main-container">
+		<div id="sidebar">
+			<div id="top-stripe"></div>
+			<div id="large"></div>
+			<img src="envelope.png" style="width:100%;margin-top:125%;position:absolute" />
+			<div id="store">
+				<div id="store-button">
+					<p id="store-p">BUY STAMPS</p>
+				</div>
+			</div>
+		</div>
+		<div id="topbar">
+			<div id="account">
+				<p id="email-p">dbastov@gmail.com</p>
+			</div>
+		</div>
+		<div id="gallery">
+			<div id="thumbnails" style="height:100%"></div>
+		</div>
+		<div id="botbar">
+			<div id="sharer-container"></div>
+			<div id="result-buttons">
+				<button id="ok" class="result-button"><p>OK</p></button>
+				<button id="cancel" class="result-button"><p>Cancel</p></button>
+			</div>
+		</div>
+	</div>
+	<!--scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="jquery.sharer.js"></script>
+	<script type="text/javascript">$("#sharer-container").sharer()</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script> <!--parse-->
+	<script src="backbone-examples.js"></script>
+</body>
+
+</html>
