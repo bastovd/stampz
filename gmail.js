@@ -2004,6 +2004,7 @@ var Gmail = function(localJQuery) {
     // Modal window controls
     var controls = $(document.createElement('div'));
     controls.attr('class', 'Kj-JD-Jl');
+	controls.attr('style', 'text-align:right');
     
     var okButton = $(document.createElement('button'));
     okButton.attr('id', 'gmailJsModalWindowOk');
@@ -2022,8 +2023,9 @@ var Gmail = function(localJQuery) {
     controls.append(cancelButton);
     
     //container.append(header);
+	contents.append(controls);
     container.append(contents);
-    container.append(controls);
+    //container.append(controls);
     
     $(document.body).append(background);
     $(document.body).append(container);
