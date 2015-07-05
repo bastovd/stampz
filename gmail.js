@@ -1953,7 +1953,7 @@ var Gmail = function(localJQuery) {
     background.attr('id','gmailJsModalBackground');
     background.attr('class','Kj-JD-Jh');
     background.attr('aria-hidden','true');
-    background.attr('style','opacity:0.75;width:100%;height:100%;background:#222');
+    background.attr('style','opacity:0.5;width:100%;height:100%;background:#000');
     
     // Modal window wrapper
     var container = $(document.createElement('div'));
@@ -1964,6 +1964,14 @@ var Gmail = function(localJQuery) {
     container.attr('aria-labelledby', 'gmailJsModalWindowTitle');
     container.attr('style', 'left:50%;top:50%;opacity:1;padding:0;margin:0;');
     
+	var closeButton = $(document.createElement('span'));
+    closeButton.attr('id', 'gmailJsModalWindowClose');
+    closeButton.attr('class', 'Kj-JD-K7-Jq');
+    closeButton.attr('role', 'button');
+    closeButton.attr('tabindex', '0');
+    closeButton.attr('aria-label', 'Close');
+    closeButton.click(onClickClose);
+	
     // Modal window header contents
     /*var header = $(document.createElement('div'));
     header.attr('class', 'Kj-JD-K7 Kj-JD-K7-GIHV4');
@@ -1991,6 +1999,7 @@ var Gmail = function(localJQuery) {
     contents.attr('class', 'Kj-JD-Jz');
 	contents.attr('style', 'opacity:1');
     contents.html(content_html);
+	contents.append(closeButton);
     
     // Modal window controls
     var controls = $(document.createElement('div'));
