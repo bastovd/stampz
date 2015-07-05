@@ -35,10 +35,7 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
-			//load modal html
-			//var modal_html = '';
-			//////////////
-			gmail.tools.add_modal_window('Stamps', modal_html, 
+			gmail.tools.add_modal_window('Stamps', html_modal, 
 				function() { //ok
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
@@ -75,13 +72,22 @@ var checkLoaded = function() {
         }, 50);
       }
     };
+	
+	//load external files into variables
 	var client = new XMLHttpRequest();
+	//load modal.html
 	client.open('GET', SERVER_ADDRESS+'modal.html');
 	client.onreadystatechange = function() {
-		alert(client.responseText);
 		modal_html += client.responseText;  
 	}
 	client.send();
+	//load modal.html
+	client.open('GET', SERVER_ADDRESS+'backbone.html');
+	client.onreadystatechange = function() {
+		html_modal += client.responseText;  
+	}
+	client.send();
+	
 	while (modal_html == '') {
 		continue;
 	}
@@ -164,71 +170,9 @@ html =
 </body>';
 }
 
+/*--------EXTERNAL RESOURCE VARIABLES------------*/
 //modal window html
 var modal_html = '';
-/*var client = new XMLHttpRequest();
-client.open('GET', '/modal.html');
-client.onreadystatechange = function() {
-	//alert(client.responseText);
-	modal_html += client.responseText;  
-}
-client.send();*/
-
-var temp = '<head> \
-    <title>LoveStamps</title> \
-    <style> \
-      body { \
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif; \
-        font-size: 100%; \
-      } \
-      #status { \
-        /* avoid an excessively wide status text */ \
-        white-space: pre; \
-        text-overflow: ellipsis; \
-        overflow: hidden; \
-        max-width: 400px; \
-      } \
-	  #email { \
-		width:80%; \
-		height:200px; \
-	  } \
-	  #capsule-div { \
-		width:80%; \
-		height:200px; \
-	  } \
-	  #header { \
-		width:100%; \
-		height:20%; \
-		text-align: center; \
-		font-family: inherit; \
-		font-size: x-large; \
-	  } \
-	  #stamp-selector { \
-		width:100%; \
-		height:80%; \
-		border:solid 1px; \
-		padding: 5px; \
-		margin-left:-5px \
-	  } \
-	  .stamp-image { \
-		height:150px; \
-		margin: 2px; \
-		cursor: pointer; \
-	  } \
-    </style> \
-  </head> \
-  <body> \
-	<div id="capsule-div"> \
-		<div id="header"> \
-			<p id="header-title" >LoveStamps</p> \
-		</div> \
-		<div id="stamp-selector"> \
-			<img id="stamp_1" class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample.png"/> \
-			<img id="stamp_2" class="stamp-image" src="https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"/> \
-		</div>	\
-	</div> \
-</body>';
-
 var html_modal = '';
 
 var compose_button_html =
