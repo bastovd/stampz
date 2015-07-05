@@ -35,7 +35,7 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
-			gmail.tools.add_modal_window('Stamps', html_modal, 
+			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
@@ -76,17 +76,29 @@ var checkLoaded = function() {
 	//load external files into variables
 	var client = new XMLHttpRequest();
 	//load modal.html
-	client.open('GET', SERVER_ADDRESS+'modal.html');
+	$.ajax({
+		type: 'GET',
+		url: SERVER_ADDRESS+'modal.html',
+		success: function (file_html) {
+			// success
+			modal_html += file_html;
+			//alert('success : ' + file_html);
+		}
+		error : function () {
+			alert('error');
+		}
+	});
+	/*client.open('GET', SERVER_ADDRESS+'modal.html');
 	client.onreadystatechange = function() {
 		modal_html += client.responseText;  
 	}
-	client.send();
+	client.send();*/
 	//load modal.html
-	client.open('GET', SERVER_ADDRESS+'backbone.html');
+	/*client.open('GET', SERVER_ADDRESS+'backbone.html');
 	client.onreadystatechange = function() {
 		html_modal += client.responseText;  
 	}
-	client.send();
+	client.send();*/
 	
 	while (modal_html == '') {
 		continue;
