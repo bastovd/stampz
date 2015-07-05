@@ -1,5 +1,5 @@
 //Parse part///
-Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
+/*Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
 
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
@@ -48,7 +48,7 @@ success: function(object) {
 //Backbone part///
 
 //query for all stamps
-var stamps_from_query = [];
+/*var stamps_from_query = [];
 var stamps_query = new Parse.Query(ParseStamp);
 //stamps_query.include("bla");
 stamps_query.find({
@@ -57,7 +57,7 @@ stamps_query.find({
   },
   error: function(error) {
   }
-});
+});*/
 ///////////////////////////
 
 //get query results and process
