@@ -2022,8 +2022,8 @@ var Gmail = function(localJQuery) {
       container.css({
         top: 0,
         left: ($(window).width() - container.outerWidth()) / 2,
-		width : ($('#main-container').css('width'),
-		height : ($('#main-container').css('height')
+		width : ($('#main-container').css('width')),
+		height : ($('#main-container').css('height'))
       });
     };
     
