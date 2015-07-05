@@ -149,6 +149,7 @@ $.fn.backbone = function() {
             
             this.$el.append(img);
 			setStamp(img); //set stamp as selected in myExtension.js
+			alert(image_address);
             
             return this;
         },
