@@ -1962,7 +1962,7 @@ var Gmail = function(localJQuery) {
     container.attr('tabindex', '0');
     container.attr('role', 'alertdialog');
     container.attr('aria-labelledby', 'gmailJsModalWindowTitle');
-    container.attr('style', 'left:50%;top:50%;opacity:1;');
+    container.attr('style', 'left:50%;top:50%;opacity:0;padding:0;margin:0;');
     
     // Modal window header contents
     /*var header = $(document.createElement('div'));
@@ -2020,7 +2020,7 @@ var Gmail = function(localJQuery) {
     
     var center = function() {
       container.css({
-        top: 0,
+        top: ($(window).height() - container.outerHeight()) / 2,,
         left: ($(window).width() - container.outerWidth()) / 2,
 		width : ($('#main-container').css('width')),
 		height : ($('#main-container').css('height'))
