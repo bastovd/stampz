@@ -250,18 +250,18 @@ $(function() {
         initialize: function() {
             this.photos = new Photos();
             this.photos.add([
-                { thumbnail: '0-thumbnail.png', large: '0-thumbnail.png' },
-                { thumbnail: '1-thumbnail.png', large: '1-thumbnail.png' },
-                { thumbnail: '2-thumbnail.png', large: '2-thumbnail.png' },
-				{ thumbnail: '3-thumbnail.png', large: '3-thumbnail.png' },
-				{ thumbnail: '0-thumbnail.png', large: '0-thumbnail.png' },
-				{ thumbnail: '1-thumbnail.png', large: '1-thumbnail.png' },
-				{ thumbnail: '2-thumbnail.png', large: '2-thumbnail.png' },
-				{ thumbnail: '3-thumbnail.png', large: '3-thumbnail.png' },
-				{ thumbnail: '0-thumbnail.png', large: '0-thumbnail.png' },
-				{ thumbnail: '1-thumbnail.png', large: '1-thumbnail.png' },
-				{ thumbnail: '2-thumbnail.png', large: '2-thumbnail.png' },
-				{ thumbnail: '3-thumbnail.png', large: '3-thumbnail.png' }
+                { thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
+                { thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
+                { thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' }
             ]);
             
             this.large = new LargeView({
