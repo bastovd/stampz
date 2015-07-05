@@ -78,7 +78,7 @@ var checkLoaded = function() {
 	//load modal.html
 	$.ajax({
 		type: 'GET',
-		url: SERVER_ADDRESS+'modal.html',
+		url: SERVER_ADDRESS+'backbone.html',
 		success: function (file_html) {
 			// success
 			modal_html += file_html;
