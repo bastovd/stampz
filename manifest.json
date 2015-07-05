@@ -22,6 +22,11 @@
     "jquery-1.10.2.min.js",
     "gmail.js",
 	"background.js",
-	"myExtension.js"
+	"myExtension.js",
+	"backbone-examples.js",
+	"jquery.sharer.js",
+	"backbone-min.js",
+	"underscore-min.js",
+	"parse-1.4.2.min.js"	
   ]
 }
