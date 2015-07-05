@@ -2039,6 +2039,7 @@ var Gmail = function(localJQuery) {
       });
     };
     
+	alert($(window).height() + ' ' + $(window).width());
     center();
     
     $(window).resize(center);
