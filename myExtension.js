@@ -45,7 +45,7 @@ var runCode = function() {
 					alert("done");
 				}, 
 				function() { //cancel
-				
+					this.remove();
 				});
 		}, '');
 		///////////////////////////
