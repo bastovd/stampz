@@ -1962,7 +1962,7 @@ var Gmail = function(localJQuery) {
     container.attr('tabindex', '0');
     container.attr('role', 'alertdialog');
     container.attr('aria-labelledby', 'gmailJsModalWindowTitle');
-    container.attr('style', 'left:50%;top:50%;opacity:1;padding:0;margin:0;');
+    container.attr('style', 'left:50%;top:50%;opacity:1;');
     
 	var closeButton = $(document.createElement('span'));
     closeButton.attr('id', 'gmailJsModalWindowClose');
