@@ -92,7 +92,7 @@ console.log(JSON.stringify(stamp1));*/
 //location.reload(); //reload the page
 
 //--------Gallery START----------------------//
-$(function() {
+$.fn.backbone = function() {
     var Photo = Backbone.Model.extend({});
     
     var IterableCollecton = Backbone.Collection.extend({
@@ -290,6 +290,6 @@ $(function() {
     });
 
     new AppView().render();
-}); 
+}; 
 //--------Gallery END--------------------//
 
