@@ -2,18 +2,22 @@ window.onload = function () {
 
   var jq = document.createElement('script');
   jq.src = "https://rawgit.com/bastovd/stampz/master/jquery-1.10.2.min.js"
+  jq.async = false;
   document.getElementsByTagName('body')[0].appendChild(jq)
 
   var sm = document.createElement('script');
   sm.src = "https://rawgit.com/bastovd/stampz/master/gmail.js";
+  sm.async = false;
   document.getElementsByTagName('body')[0].appendChild(sm);
 
   var me = document.createElement('script');
   me.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
+  me.async = false;
   document.getElementsByTagName('body')[0].appendChild(me);
   
   var us = document.createElement('script');
   us.src = "https://rawgit.com/bastovd/stampz/master/underscore-min.js";
+  us.async = false;
   document.getElementsByTagName('body')[0].appendChild(us);
   
   var bb = document.createElement('script');
@@ -28,6 +32,7 @@ window.onload = function () {
   
   var pa = document.createElement('script');
   pa.src = "https://rawgit.com/bastovd/stampz/master/parse-1.4.2.min.js";
+  pa.async = false;
   document.getElementsByTagName('body')[0].appendChild(pa);
   
   var be = document.createElement('script');
