@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>LoveStamp</title>
-	<link rel="stylesheet" type="text/css" href="backbone.css">
 	<link rel="stylesheet" type="text/css" href="jquery.sharer.css">
+	<!--<link rel="stylesheet" type="text/css" href="backbone.css">-->
 </head>
 
 <body>
@@ -37,12 +37,6 @@
 		</div>
 	</div>
 	<!--scripts-->
-	<script type="text/javascript">
-		var backbone_css = '';
-		$.get('/backbone.css', function(data) {
-			backbone_css = data;
-		});
-	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="jquery.sharer.js"></script>
 	<script type="text/javascript">$("#sharer-container").sharer()</script>
@@ -50,6 +44,27 @@
 	<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script> <!--parse-->
 	<script src="backbone-examples.js"></script>
+	<script type="text/javascript">
+		var backbone_css = '';
+		/*$.ajax({
+			type: 'GET',
+			url: 'backbone.css',
+			success: function (file_html) {
+				// success
+				alert('success : ' + file_html);
+			}
+			error : function () {
+				alert('error');
+			}
+		});*/
+		var client = new XMLHttpRequest();
+		client.open('GET', 'backbone.css');
+		client.onreadystatechange = function() {
+			alert(client.responseText);
+		}
+		client.send();
+		$('head').append('<style>'+backbone_css+'</style>');
+	</script>
 </body>
 
 </html>
