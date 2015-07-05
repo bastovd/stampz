@@ -2004,7 +2004,7 @@ var Gmail = function(localJQuery) {
     // Modal window controls
     var controls = $(document.createElement('div'));
     controls.attr('class', 'Kj-JD-Jl');
-	controls.attr('style', 'text-align:right');
+	controls.attr('style', 'text-align:right;position:absolute;right:0;bottom:4%;margin-top:0');
     
     var okButton = $(document.createElement('button'));
     okButton.attr('id', 'gmailJsModalWindowOk');
