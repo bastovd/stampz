@@ -158,9 +158,18 @@ html =
 </script> \
 </head> \
 <body> \
-	<div id="stamp-container" onclick="changeStamp()"> \
+	<div id="stamp-container" onclick="changeStamp()" style="width: 500px; \
+															height: 150px; \
+															text-align:right; \
+															position:relative;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
-		<div id="stamp"> \
+		<div id="stamp" style="height: 90%; \
+								width: 20.7%; \
+								top:5%; \
+								right: 2%; \
+								position: absolute; \
+								background: url(' + image_address + '); \
+								background-size: auto 100%;"> \
 		</div></a> \
 	</div> \
 	<br> \
