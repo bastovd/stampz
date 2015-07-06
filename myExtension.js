@@ -42,12 +42,12 @@ var runCode = function() {
 					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 					setBodyHTML();
 					compose_ref.body(html);
-					$('#gmailJsModalBackground').remove();
-					$('#gmailJsModalWindow').remove();
+					removeId('#gmailJsModalBackground');
+					removeId('#gmailJsModalWindow');
 				}, 
 				function() { //cancel
-					$('#gmailJsModalBackground').remove();
-					$('#gmailJsModalWindow').remove();	
+					removeId('#gmailJsModalBackground');
+					removeId('#gmailJsModalWindow');	
 				});
 		}, '');
 		///////////////////////////
@@ -56,6 +56,10 @@ var runCode = function() {
         compose.body(html);
     },0);
   });
+}
+
+var removeId(id) {
+	$(id).remove();
 }
 
 var setStamp = function(img) {
