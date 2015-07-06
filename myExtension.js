@@ -42,10 +42,9 @@ var runCode = function() {
 					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 					setBodyHTML();
 					compose_ref.body(html);
-					alert(image_address);
+					alert(' ' + image_address);
 				}, 
 				function() { //cancel
-					$(window).remove();
 				});
 		}, '');
 		///////////////////////////
