@@ -58,7 +58,7 @@ var runCode = function() {
   });
 }
 
-var removeId(id) {
+var removeId = function(id) {
 	$(id).remove();
 }
 
