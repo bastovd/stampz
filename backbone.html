@@ -12,7 +12,7 @@
 		</div>
 		<div id="topbar">
 			<div id="account">
-				<p id="email-p">dbastov@gmail.com</p>
+				<p id="email-p"></p>
 			</div>
 		</div>
 		<div id="gallery">
@@ -26,7 +26,10 @@
 	<script src="underscore-min.js"></script>
 	<script src="backbone-min.js"></script>
 	<script src="jquery.sharer.js"></script>-->
-	<script type="text/javascript">$("#thumbnails").backbone()</script>
+	<script type="text/javascript">
+	$("#thumbnails").backbone();
+	$("#email-p").text(gmail.get.user_email());
+	</script>
 	<script type="text/javascript">$("#sharer-container").sharer()</script>
 	<!--<script src="parse-1.4.2.min.js"></script>
 	<script src="backbone-examples.js"></script>-->

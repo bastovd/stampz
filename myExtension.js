@@ -17,7 +17,7 @@ var runCode = function() {
     window.postMessage({ "type": "new_email", "message_id": id }, "*");
   });
   
-  alert(gmail.get.user_email());
+  //alert(gmail.get.user_email());
   
   //add button to toolbar
   gmail.tools.add_toolbar_button('stamp', function() {
