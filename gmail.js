@@ -2031,7 +2031,7 @@ var Gmail = function(localJQuery) {
                 target: '#gmailJsModalBackground',
                 effect: 'fadein'
             });
-            this.preventDefault();
+            //this.preventDefault();
     //$(document.body).append(background);
     //$(document.body).append(container);
 	
