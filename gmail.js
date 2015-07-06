@@ -2026,14 +2026,9 @@ var Gmail = function(localJQuery) {
 	contents.append(controls);
     container.append(contents);
     //container.append(controls);
-    
-	Custombox.open({
-                target: '#gmailJsModalBackground',
-                effect: 'fadein'
-            });
-            //this.preventDefault();
-    //$(document.body).append(background);
-    //$(document.body).append(container);
+   
+    $(document.body).append(background);
+    $(document.body).append(container);
 	
     var setContainerSize = function() {
 		container.css({
