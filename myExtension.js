@@ -163,13 +163,13 @@ html =
 															text-align:right; \
 															position:relative;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
-		<div id="stamp" style="height: 90%; \
-								width: 20.7%; \
-								top:5%; \
-								right: 2%; \
-								position: absolute; \
+		<div id="stamp" style="height: 150px; \
+								width: 115px; \
+								position: relative; \
 								background: url(' + image_address + '); \
-								background-size: auto 100%;"> \
+								background-size: 100%; \
+								margin-left: 385px; \
+								background-repeat: no-repeat;"> \
 		</div></a> \
 	</div> \
 	<br> \
