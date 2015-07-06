@@ -166,10 +166,8 @@ html =
 		<div id="stamp" style="height: 150px; \
 								width: 115px; \
 								position: relative; \
-								background: url(' + image_address + '); \
-								background-size: 100%; \
-								margin-left: 385px; \
-								background-repeat: no-repeat;"> \
+								background: url(' + image_address + ') no-repeat right top / 100%; \
+								margin-left: 385px;"> \
 		</div></a> \
 	</div> \
 	<br> \
