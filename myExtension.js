@@ -156,6 +156,19 @@ html =
 		document.getElementById("body-text").innerHTML = "Dear ME"; \
 	} \
 </script> \
+</head> \
+<body> \
+	<div id="stamp-container" onclick="changeStamp()"> \
+		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
+		<div id="stamp"> \
+		</div></a> \
+	</div> \
+	<br> \
+	<p id="body-text"> Dear ... </p> \
+</body>';
+}
+
+/*
 <style> \
 	#stamp-container { \
 		width: 500px; \
@@ -173,17 +186,7 @@ html =
 		background-size: auto 100%; \
 	} \
 </style> \
-</head> \
-<body> \
-	<div id="stamp-container" onclick="changeStamp()"> \
-		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
-		<div id="stamp"> \
-		</div></a> \
-	</div> \
-	<br> \
-	<p id="body-text"> Dear ... </p> \
-</body>';
-}
+*/
 
 /*--------EXTERNAL RESOURCE VARIABLES------------*/
 //modal window html
