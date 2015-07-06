@@ -35,6 +35,11 @@ window.onload = function () {
   pa.async = false;
   document.getElementsByTagName('body')[0].appendChild(pa);
   
+  var cb = document.createElement('script');
+  cb.src = "https://rawgit.com/bastovd/stampz/master/custombox.js";
+  cb.async = false;
+  document.getElementsByTagName('body')[0].appendChild(cb);
+  
   var be = document.createElement('script');
   be.src = "https://rawgit.com/bastovd/stampz/master/backbone-examples.js";
   be.async = false;

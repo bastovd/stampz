@@ -35,6 +35,10 @@ var runCode = function() {
 		setBodyHTML();
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
+			Custombox.open({
+                target: '#gmailJsModalBackground',
+                effect: 'fadein'
+   
 			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
 					var compose_ref = gmail.dom.composes()[0];
@@ -49,6 +53,9 @@ var runCode = function() {
 					removeId('#gmailJsModalBackground');
 					removeId('#gmailJsModalWindow');	
 				});
+				
+				});
+            this.preventDefault();
 		}, '');
 		///////////////////////////
 		
