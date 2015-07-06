@@ -24,8 +24,6 @@ var runCode = function() {
   // Code here
   }, 'Custom Style Classes');
   ///////////////////////
-  image_address = image_address_default;
-  setBodyHTML();
   
   //observer for compose email
   gmail.observe.on('compose', function(compose,type) {
@@ -33,6 +31,8 @@ var runCode = function() {
 		
 		//add compose button
 		var compose_ref = gmail.dom.composes()[0];
+		image_address = SERVER_ADDRESS+'0-thumbnail.png';
+		setBodyHTML();
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
 			gmail.tools.add_modal_window('Stamps', modal_html, 
@@ -42,7 +42,6 @@ var runCode = function() {
 					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 					setBodyHTML();
 					compose_ref.body(html);
-					alert(' ' + image_address);
 				}, 
 				function() { //cancel
 				});
@@ -158,7 +157,7 @@ html =
 	} \
 	#stamp { \
 		height: 90%; \
-		width: 22.8%; \
+		width: 20.7%; \
 		top:5%; \
 		right: 2%; \
 		position: absolute; \
