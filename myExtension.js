@@ -37,8 +37,10 @@ var runCode = function() {
 		for (var i = 0; i < compose_refs.length; i++) {
 			gmail.tools.add_compose_button(compose_refs[i], compose_button_html, function() {
 			  // Code here
+				var index = i;
 				gmail.tools.add_modal_window('Stamps', modal_html, 
 					function() { //ok
+						alert(index + " " + i);
 						var compose_ref = gmail.dom.composes()[i];
 						//image_address = img;
 						//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
@@ -161,16 +163,16 @@ html =
 </script> \
 </head> \
 <body> \
-	<div id="stamp-container" onclick="changeStamp()" style="width: 500px; \
+	<div id="stamp-container" onclick="changeStamp()" style="width: 100%; \
 															height: 150px; \
 															text-align:right; \
-															position:relative;"> \
+															position:absolute;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
 		<div id="stamp" style="height: 150px; \
 								width: 115px; \
-								position: relative; \
+								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
-								margin-left: 385px;"> \
+								right: 5%;"> \
 		</div></a> \
 	</div> \
 	<br> \
