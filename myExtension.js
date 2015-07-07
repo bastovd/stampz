@@ -156,7 +156,7 @@ function setBodyHTML(compose_ref) {
 	if (body_text_div != null) {
 		var texts = document.getElementsByClassName("body-text");
 		for (var i = 0; i < texts.length; i++) {
-			alert(texts[i].innerHTML);
+			//alert(texts[i].innerHTML);
 			var paragraph = '<p class="body-text">';//$(document.createElement('p'));
 			//paragraph.attr('class', 'body-text');
 			var txt = texts[i].innerHTML+'';//document.createTextNode(texts[i].innerHTML+'');
@@ -169,7 +169,7 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
-	alert(new_text);
+	//alert(new_text);
 html =  
 '<head> \
 <title>virtual stamp</title> \
