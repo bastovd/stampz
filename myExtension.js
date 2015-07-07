@@ -152,7 +152,7 @@ function setBodyHTML(compose_ref) {
 	var e = gmail.dom.composes()[0];
 	var text = $("#body-text").innerHTML;
 	var txt = document.getElementById("body-text");
-	alert(text + " " + txt + " " + txt.innerHTML);
+	alert(text + " " + txt + " ");
 	if (text == '' || text == undefined) {
 		text = 'Dear ...';
 	}
