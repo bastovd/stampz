@@ -30,18 +30,18 @@ var runCode = function() {
     window.setTimeout( function() {
 		
 		//add compose button
-		var compose_refs = gmail.dom.composes();
+		var compose_ref = gmail.dom.composes()[0];
 		image_address = SERVER_ADDRESS+'0-thumbnail.png';
 		setBodyHTML();
 		
 		for (var i = 0; i < compose_refs.length; i++) {
-			gmail.tools.add_compose_button(compose_refs[i], compose_button_html, function() {
+			gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 			  // Code here
 				var index = i;
 				gmail.tools.add_modal_window('Stamps', modal_html, 
 					function() { //ok
 						alert(index + " " + i);
-						var compose_ref = gmail.dom.composes()[i];
+						var compose_ref = gmail.dom.composes()[0];
 						//image_address = img;
 						//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 						setBodyHTML();
@@ -172,7 +172,7 @@ html =
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
-								right: 5%;"> \
+								margin-left: 80%;"> \
 		</div></a> \
 	</div> \
 	<br> \
