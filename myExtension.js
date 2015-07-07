@@ -34,27 +34,25 @@ var runCode = function() {
 		image_address = SERVER_ADDRESS+'0-thumbnail.png';
 		setBodyHTML();
 		
-		for (var i = 0; i < compose_refs.length; i++) {
-			gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
-			  // Code here
-				var index = i;
-				gmail.tools.add_modal_window('Stamps', modal_html, 
-					function() { //ok
-						alert(index + " " + i);
-						var compose_ref = gmail.dom.composes()[0];
-						//image_address = img;
-						//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-						setBodyHTML();
-						compose_ref.body(html);
-						removeId('#gmailJsModalBackground');
-						removeId('#gmailJsModalWindow');
-					}, 
-					function() { //cancel
-						removeId('#gmailJsModalBackground');
-						removeId('#gmailJsModalWindow');	
-					});
-			}, '');
-		}
+		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
+		  // Code here
+			var index = i;
+			gmail.tools.add_modal_window('Stamps', modal_html, 
+				function() { //ok
+					alert(index + " " + i);
+					var compose_ref = gmail.dom.composes()[0];
+					//image_address = img;
+					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+					setBodyHTML();
+					compose_ref.body(html);
+					removeId('#gmailJsModalBackground');
+					removeId('#gmailJsModalWindow');
+				}, 
+				function() { //cancel
+					removeId('#gmailJsModalBackground');
+					removeId('#gmailJsModalWindow');	
+				});
+		}, '');
 		///////////////////////////
 		
         compose.subject('THIS TEST');
