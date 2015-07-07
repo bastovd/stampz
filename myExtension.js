@@ -152,10 +152,10 @@ function setBodyHTML(compose_ref) {
 	var e = gmail.dom.composes()[0];
 	var text = document.getElementById("body-text");
 	var init_text = " Dear ... ";
-	alert(text + " " + txt);
 	if (text != null) {
 		init_text = '' + text.innerHTML;
 	}
+	alert(init_text);
 html =  
 '<head> \
 <title>virtual stamp</title> \
