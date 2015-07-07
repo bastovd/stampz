@@ -164,13 +164,13 @@ html =
 	<div id="stamp-container" onclick="changeStamp()" style="width: 100%; \
 															height: 150px; \
 															text-align:right; \
-															position:absolute;"> \
+															position:relative;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
 		<div id="stamp" style="height: 150px; \
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
-								margin-left: 80%;"> \
+								margin-left: 75%;"> \
 		</div></a> \
 	</div> \
 	<br> \
