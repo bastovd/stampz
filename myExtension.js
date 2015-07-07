@@ -36,14 +36,12 @@ var runCode = function() {
 		
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
-			var index = i;
 			gmail.tools.add_modal_window('Stamps', modal_html, 
 				function() { //ok
-					alert(index + " " + i);
 					var compose_ref = gmail.dom.composes()[0];
 					//image_address = img;
 					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-					setBodyHTML();
+					setBodyHTML(compose_ref);
 					compose_ref.body(html);
 					removeId('#gmailJsModalBackground');
 					removeId('#gmailJsModalWindow');
@@ -150,7 +148,12 @@ var onClickClose = function() {
 /////////////////HTML layouts//////////////
 //message body html
 var html = '';
-function setBodyHTML() {
+function setBodyHTML(compose_ref) {
+var e = gmail.dom.composes()[0];
+var text = $("#body-text").innerHTML;
+if (text == '' || text == undefined) {
+	text = 'Dear ...';
+}
 html =  
 '<head> \
 <title>virtual stamp</title> \
@@ -174,7 +177,7 @@ html =
 		</div></a> \
 	</div> \
 	<br> \
-	<p id="body-text"> Dear ... </p> \
+	<p id="body-text"> ' + text + ' </p> \
 </body>';
 }
 
