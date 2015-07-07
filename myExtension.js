@@ -39,7 +39,7 @@ var runCode = function() {
 			  // Code here
 				gmail.tools.add_modal_window('Stamps', modal_html, 
 					function() { //ok
-						var compose_ref = compose_refs[i];//gmail.dom.composes()[0];
+						var compose_ref = gmail.dom.composes()[i];
 						//image_address = img;
 						//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
 						setBodyHTML();
