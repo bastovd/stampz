@@ -30,26 +30,29 @@ var runCode = function() {
     window.setTimeout( function() {
 		
 		//add compose button
-		var compose_ref = gmail.dom.composes()[0];
+		var compose_refs = gmail.dom.composes();
 		image_address = SERVER_ADDRESS+'0-thumbnail.png';
 		setBodyHTML();
-		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
-		  // Code here
-			gmail.tools.add_modal_window('Stamps', modal_html, 
-				function() { //ok
-					var compose_ref = gmail.dom.composes()[0];
-					//image_address = img;
-					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-					setBodyHTML();
-					compose_ref.body(html);
-					removeId('#gmailJsModalBackground');
-					removeId('#gmailJsModalWindow');
-				}, 
-				function() { //cancel
-					removeId('#gmailJsModalBackground');
-					removeId('#gmailJsModalWindow');	
-				});
-		}, '');
+		
+		for (var i = 0; i < compose_refs.length; i++) {
+			gmail.tools.add_compose_button(compose_refs[i], compose_button_html, function() {
+			  // Code here
+				gmail.tools.add_modal_window('Stamps', modal_html, 
+					function() { //ok
+						var compose_ref = compose_refs[i];//gmail.dom.composes()[0];
+						//image_address = img;
+						//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+						setBodyHTML();
+						compose_ref.body(html);
+						removeId('#gmailJsModalBackground');
+						removeId('#gmailJsModalWindow');
+					}, 
+					function() { //cancel
+						removeId('#gmailJsModalBackground');
+						removeId('#gmailJsModalWindow');	
+					});
+			}, '');
+		}
 		///////////////////////////
 		
         compose.subject('THIS TEST');
