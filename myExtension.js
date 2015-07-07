@@ -150,11 +150,11 @@ var onClickClose = function() {
 var html = '';
 function setBodyHTML(compose_ref) {
 	var e = gmail.dom.composes()[0];
-	var text = $("#body-text").innerHTML;
-	var txt = document.getElementById("body-text");
+	var text = document.getElementById("body-text");
+	var init_text = " Dear ... ";
 	alert(text + " " + txt);
-	if (text == '' || text == undefined) {
-		text = 'Dear ...';
+	if (text != null) {
+		init_text = '' + text.innerHTML;
 	}
 html =  
 '<head> \
@@ -179,7 +179,7 @@ html =
 		</div></a> \
 	</div> \
 	<br> \
-	<p id="body-text"> ' + text + ' </p> \
+	<p id="body-text"> ' + init_text + ' </p> \
 </body>';
 }
 
