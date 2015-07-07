@@ -156,9 +156,10 @@ function setBodyHTML(compose_ref) {
 	if (body_text_div != null) {
 		var texts = document.getElementsByClassName("body-text");
 		for (var i = 0; i < texts.length; i++) {
+			alert(texts[i].innerHTML);
 			var paragraph = '<p class="body-text">';//$(document.createElement('p'));
 			//paragraph.attr('class', 'body-text');
-			var txt = document.createTextNode(texts[i].innerHTML+'');
+			var txt = texts[i].innerHTML+'';//document.createTextNode(texts[i].innerHTML+'');
 			//paragraph.append(txt);
 			paragraph += txt + '</p>';
 			new_text += paragraph;
