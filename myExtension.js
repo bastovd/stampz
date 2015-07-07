@@ -149,11 +149,11 @@ var onClickClose = function() {
 //message body html
 var html = '';
 function setBodyHTML(compose_ref) {
-var e = gmail.dom.composes()[0];
-var text = $("#body-text").innerHTML;
-if (text == '' || text == undefined) {
-	text = 'Dear ...';
-}
+	var e = gmail.dom.composes()[0];
+	var text = $("#body-text").innerHTML;
+	if (text == '' || text == undefined) {
+		text = 'Dear ...';
+	}
 html =  
 '<head> \
 <title>virtual stamp</title> \
