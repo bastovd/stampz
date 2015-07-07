@@ -154,13 +154,10 @@ function setBodyHTML(compose_ref) {
 	var init_text = " Dear ... ";
 	var new_text = '';
 	if (body_text_div != null) {
-		var texts = document.getElementsByClassName("body-text");
+		var texts = body_text_div.children;//document.getElementsByClassName("body-text");
 		for (var i = 0; i < texts.length; i++) {
-			//alert(texts[i].innerHTML);
-			var paragraph = '<p class="body-text">';//$(document.createElement('p'));
-			//paragraph.attr('class', 'body-text');
-			var txt = texts[i].innerHTML+'';//document.createTextNode(texts[i].innerHTML+'');
-			//paragraph.append(txt);
+			var paragraph = '<p class="body-text">';
+			var txt = texts[i].innerHTML+'';
 			paragraph += txt + '</p>';
 			new_text += paragraph;
 		}
@@ -169,7 +166,7 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
-	//alert(new_text);
+	//fix ctrl+c insertions and plain text without <p> tags
 html =  
 '<head> \
 <title>virtual stamp</title> \
