@@ -150,6 +150,7 @@ var onClickClose = function() {
 var html = '';
 function setBodyHTML(compose_ref) {
 	var e = gmail.dom.composes()[0];
+	var prev_body = e.body();
 	var body_text_div = document.getElementById("body-text-div");
 	var init_text = " Dear ... ";
 	var new_text = '';
@@ -166,6 +167,7 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
+	new_text += prev_body;
 	//fix ctrl+c insertions and plain text without <p> tags
 html =  
 '<head> \
