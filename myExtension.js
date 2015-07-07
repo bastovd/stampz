@@ -150,12 +150,25 @@ var onClickClose = function() {
 var html = '';
 function setBodyHTML(compose_ref) {
 	var e = gmail.dom.composes()[0];
-	var text = document.getElementById("body-text");
+	var body_text_div = document.getElementById("body-text-div");
 	var init_text = " Dear ... ";
-	if (text != null) {
-		init_text = '' + text.innerHTML;
+	var new_text = '';
+	if (body_text_div != null) {
+		var texts = document.getElementsByClassName("body-text");
+		for (var i = 0; i < texts.length; i++) {
+			var paragraph = '<p class="body-text">';//$(document.createElement('p'));
+			//paragraph.attr('class', 'body-text');
+			var txt = document.createTextNode(texts[i].innerHTML+'');
+			//paragraph.append(txt);
+			paragraph += txt + '</p>';
+			new_text += paragraph;
+		}
 	}
-	alert(init_text);
+	else {
+		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
+		new_text += paragraph;
+	}
+	alert(new_text);
 html =  
 '<head> \
 <title>virtual stamp</title> \
@@ -179,7 +192,8 @@ html =
 		</div></a> \
 	</div> \
 	<br> \
-	<p id="body-text"> ' + init_text + ' </p> \
+	<div id="body-text-div">' + new_text + 
+	'</div> \
 </body>';
 }
 
