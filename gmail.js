@@ -1970,6 +1970,7 @@ var Gmail = function(localJQuery) {
     closeButton.attr('role', 'button');
     closeButton.attr('tabindex', '0');
     closeButton.attr('aria-label', 'Close');
+	closeButton.attr('style', 'padding:15px');
     closeButton.click(onClickClose);
 	
     // Modal window header contents
