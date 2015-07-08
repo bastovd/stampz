@@ -168,7 +168,7 @@ function setBodyHTML(compose_ref) {
 		new_text += paragraph;
 	}
 	new_text += prev_body;
-	//fix ctrl+c insertions and plain text without <p> tags
+	//fix copying of body: possible: "gmail_signature" tag + if (body empty);
 html =  
 '<head> \
 <title>virtual stamp</title> \
