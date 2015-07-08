@@ -167,7 +167,9 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
-	new_text += prev_body;
+	if (!prev_body.includes('<head>')) {
+		new_text += prev_body;
+	}
 	//fix copying of body: possible: "gmail_signature" tag + if (body empty);
 html =  
 '<head> \
