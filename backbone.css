@@ -68,6 +68,7 @@ p {
 	color : #eee;
 	margin-top : 0px;
 	line-height : 3.5em;
+	cursor : pointer;
 }
 p#store-p:hover {
 	color:#111;

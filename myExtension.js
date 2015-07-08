@@ -170,7 +170,7 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
-	if (!isSignaturePreserved || !(prev_body.indexOf('<head>') > 0)) {
+	if (!isSignaturePreserved || !(prev_body.indexOf('<title>virtual stamp</title>') > 0)) {
 		alert (prev_body);
 		new_text += prev_body;
 	}
