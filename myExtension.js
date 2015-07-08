@@ -5,6 +5,8 @@ var SERVER_ADDRESS = "https://rawgit.com/bastovd/stampz/master/";
 var image_address_default = '"https://rawgit.com/bastovd/stampz/master/0-thumbnail.png"';
 var image_address;// = '"https://rawgit.com/bastovd/stampz/master/stamp_sample.png"';
 
+var isSignaturePreserved = false;
+
 var runCode = function() {
   gmail = Gmail();
   var email_data = gmail.get.email_data();
@@ -33,6 +35,7 @@ var runCode = function() {
 		var compose_ref = gmail.dom.composes()[0];
 		image_address = SERVER_ADDRESS+'0-thumbnail.png';
 		setBodyHTML();
+		isSignaturePreserved = true;
 		
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
@@ -167,7 +170,7 @@ function setBodyHTML(compose_ref) {
 		var paragraph = '<p class="body-text"> ' + init_text + ' </p>';
 		new_text += paragraph;
 	}
-	if (!prev_body.includes('<head>')) {
+	if (!isSignaturePreserved) {
 		new_text += prev_body;
 	}
 	//fix copying of body: possible: "gmail_signature" tag + if (body empty);

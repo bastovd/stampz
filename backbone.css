@@ -56,7 +56,7 @@
 	margin-right : 10%;
 }
 p {
-	font-family : 'pier-regular';
+	font-family : Pier;
 }
 #email-p {
 	font-size : 9pt;
@@ -140,4 +140,14 @@ a {
 	position : absolute;
     width : 80%;
 	margin : 10%;
+}
+
+/*fonts*/
+@font-face {
+    font-family: Pier;
+    src: url('pier-regular.otf');
+}
+@font-face {
+    font-family: Moon;
+    src: url('Moon Light.otf');
 }
