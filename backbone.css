@@ -66,9 +66,11 @@ p {
 	font-family : MoonBold;
 	font-size : 12pt;
 	color : #eee;
+	margin-top : 0px;
+	line-height : 3.5em;
 }
-#store-p :hover :active {
-	color : #222;
+p#store-p:hover {
+	color:#111;
 }
 
 #top-stripe {
