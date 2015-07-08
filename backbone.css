@@ -63,8 +63,12 @@ p {
 	color : #eee;
 }
 #store-p {
+	font-family : MoonBold;
 	font-size : 12pt;
 	color : #eee;
+}
+#store-p :hover :active {
+	color : #222;
 }
 
 #top-stripe {
@@ -142,6 +146,9 @@ a {
 	margin : 10%;
 }
 
+.body-text {
+	font-family : inherit;
+}
 /*fonts*/
 @font-face {
     font-family: Pier;
@@ -150,4 +157,8 @@ a {
 @font-face {
     font-family: Moon;
     src: url('Moon Light.otf');
+}
+@font-face {
+    font-family: MoonBold;
+    src: url('Moon Bold.otf');
 }
