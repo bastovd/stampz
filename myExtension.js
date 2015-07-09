@@ -171,7 +171,7 @@ function setBodyHTML(compose_ref) {
 		new_text += paragraph;
 	}
 	if (!isSignaturePreserved || !(prev_body.indexOf('<title>virtual stamp</title>') > 0)) {
-		alert (prev_body);
+		//alert (prev_body);
 		new_text += prev_body;
 	}
 	//fix copying of body: possible: "gmail_signature" tag + if (body empty);
