@@ -9,11 +9,6 @@ window.onload = function () {
   sm.src = "https://rawgit.com/bastovd/stampz/master/gmail.js";
   sm.async = false;
   document.getElementsByTagName('body')[0].appendChild(sm);
-
-  var me = document.createElement('script');
-  me.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
-  me.async = false;
-  document.getElementsByTagName('body')[0].appendChild(me);
   
   var us = document.createElement('script');
   us.src = "https://rawgit.com/bastovd/stampz/master/underscore-min.js";
@@ -49,6 +44,11 @@ window.onload = function () {
   be.src = "https://rawgit.com/bastovd/stampz/master/backbone-examples.js";
   be.async = false;
   document.getElementsByTagName('body')[0].appendChild(be);
+  
+  var me = document.createElement('script');
+  me.src = "https://rawgit.com/bastovd/stampz/master/myExtension.js";
+  me.async = false;
+  document.getElementsByTagName('body')[0].appendChild(me);
   
   /*-----------modal files---------------*/
 	var bcss = document.createElement("link"); //backbone.css

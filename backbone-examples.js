@@ -96,7 +96,6 @@ stamps_query.find({
 
 //sign up//
 //document set up for authentication
-var isCurrentUserLoggedIn = false; 
 var LOGIN_MODE = "NONE"; //NONE = logged off; SIGNUP = signup; SIGNIN = signin; ACTIVE = logged in
 
 var signInButton;
@@ -161,13 +160,13 @@ var onSubmitAuthFormButtonClick = function() {
 	form.submit(function(e){
 		e.preventDefault();
 	});
-	username = form.elements[0].value;
-	password = form.elements[1].value;
+	username = $('#inputUsername').val();
+	password = $('#inputPassword').val();
 	if (LOGIN_MODE == "SIGNIN") {
 		signIn();
 	}
 	else if (LOGIN_MODE = "SIGNUP") {
-		var c_password = form.elements[2].value;
+		var c_password = $('#confirmPassword').val();
 		if (password == c_password) {
 			signUp();
 		}
@@ -184,10 +183,7 @@ var signUp = function() {
 	user.set("email", gmail.get.user_email());
 	user.signUp(null, {
 	  success: function(user) {
-		LOGIN_MODE = "ACTIVE";
-		// Hooray! Let them use the app now.
-		alert("SUCCESSFULLY SIGNED UP");
-		isCurrentUserLoggedIn = true;
+		logInSuccess("SUCCESSFULLY SIGNED UP");	
 	  },
 	  error: function(user, error) {
 		// Show the error message somewhere and let the user try again.
@@ -200,15 +196,18 @@ var signUp = function() {
 var signIn = function() {
 	Parse.User.logIn(username, password, {
 	  success: function(user) {
-		LOGIN_MODE = "ACTIVE";
-		// Do stuff after successful login.
-		alert("SUCCESSFULLY LOGGED IN");
-		isCurrentUserLoggedIn = true;
+		logInSuccess("SUCCESSFULLY LOGGED IN");
 	  },
 	  error: function(user, error) {
 		// The login failed. Check error to see why.
 	  }
 	});
+}
+var logInSuccess = function(t) {
+	LOGIN_MODE = "ACTIVE";
+	// Hooray! Let them use the app now.
+	alert(t);
+	removeId('#gmailJsHelperModalWindow');
 }
 
 var logOut = function() {
@@ -221,10 +220,10 @@ var checkCurrentUser = function() {
 	var currentUser = Parse.User.current();
 	if (currentUser) {
 		// do stuff with the user
-		isCurrentUserLoggedIn = true;
+		LOGIN_MODE = "ACTIVE";
 	} else {
 		// show the signup or login page
-		isCurrentUserLoggedIn = false;
+		LOGIN_MODE = "SIGNIN";
 	}
 }
 ///////////////////////////
