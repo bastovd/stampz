@@ -107,12 +107,26 @@ var onAuthModalOpen = function() {
 	signUpButton = $('.signup-button');
 	submitAuthFormButton = $('.login-button');
 	
-	signInButton.on("click", onSignInButtonClick());
-	signUpButton.on("click", onSignUpButtonClick());
+	signInButton.on("click", onSignInButtonClick);
+	signInButton.on("mouseover", function(){
+		$(this).css('background','#222');
+	});
+	signInButton.on("mouseleave", function(){
+		$(this).css('background','#333');
+	});
+	signUpButton.on("click", onSignUpButtonClick);
+	signUpButton.on("mouseover", function(){
+		$(this).css('background','#222');
+	});
+	signUpButton.on("mouseleave", function(){
+		$(this).css('background','#333');
+	});
 	
 	signInButton.css("color","#333");
 	signInButton.css("background","#eee");
-	$('#confirmPassword').prop('disabled', true);
+	var cP = $('#confirmPassword');
+	cP.prop('disabled', true);
+	cP.css('opacity','0.5');
 }
 var onSignInButtonClick = function() {
 	signInButton.css("color","#333");
@@ -121,7 +135,7 @@ var onSignInButtonClick = function() {
 	signUpButton.css("background","#333");
 	var cP = $('#confirmPassword');
 	cP.prop('disabled', true);
-	cP.css('opacity','0');
+	cP.css('opacity','0.5');
 }
 var onSignUpButtonClick = function() {
 	signUpButton.css("color","#333");

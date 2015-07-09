@@ -228,9 +228,6 @@ a {
   border-bottom-right-radius: 0px;
   border-top-left-radius: 5px;  
 }
-button:hover {
-	background-color:#222;
-}
 
 #login-text {
   max-width: 175px;
