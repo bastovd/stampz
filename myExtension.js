@@ -9,6 +9,7 @@ var isSignaturePreserved = false;
 
 var runCode = function() {
   gmail = Gmail();
+  logOut();
   var email_data = gmail.get.email_data();
   if(email_data) {
     window.postMessage({"type" : "edata", "str_data" : JSON.stringify(email_data) }, '*');

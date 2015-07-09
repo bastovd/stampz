@@ -1,8 +1,6 @@
 //Parse part///
 Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
 
-logOut();
-
 /*-------- FACEBOOK INITIALIZATION AND FUNCTIONS---------*/
 /*window.fbAsyncInit = function() {
 	Parse.FacebookUtils.init({
