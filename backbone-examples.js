@@ -97,30 +97,34 @@ stamps_query.find({
 //sign up//
 //document set up for authentication
 var isCurrentUserLoggedIn = false; 
+var LOGIN_MODE = "NONE"; //NONE = logged off; SIGNUP = signup; SIGNIN = signin; ACTIVE = logged in
 
 var signInButton;
 var signUpButton;
 var submitAuthFormButton;
 
 var onAuthModalOpen = function() {
+	LOGIN_MODE = "SIGNIN";
+
 	signInButton = $('.signin-button');
 	signUpButton = $('.signup-button');
 	submitAuthFormButton = $('.login-button');
 	
 	signInButton.on("click", onSignInButtonClick);
-	signInButton.on("mouseover", function(){
+	/*signInButton.on("mouseover", function(){
 		$(this).css('background','#222');
 	});
 	signInButton.on("mouseleave", function(){
 		$(this).css('background','#333');
-	});
+	});*/
 	signUpButton.on("click", onSignUpButtonClick);
-	signUpButton.on("mouseover", function(){
+	signUpButton.on("hover", function(){
 		$(this).css('background','#222');
 	});
-	signUpButton.on("mouseleave", function(){
+	/*signUpButton.on("mouseleave", function(){
 		$(this).css('background','#333');
-	});
+	});*/
+	submitAuthFormButton.on("click", onSubmitAuthFormButtonClick);
 	
 	signInButton.css("color","#333");
 	signInButton.css("background","#eee");
@@ -129,6 +133,8 @@ var onAuthModalOpen = function() {
 	cP.css('opacity','0.5');
 }
 var onSignInButtonClick = function() {
+	LOGIN_MODE = "SIGNIN";
+	
 	signInButton.css("color","#333");
 	signInButton.css("background","#eee");
 	signUpButton.css("color","#eee");
@@ -138,6 +144,8 @@ var onSignInButtonClick = function() {
 	cP.css('opacity','0.5');
 }
 var onSignUpButtonClick = function() {
+	LOGIN_MODE = "SIGNUP";
+
 	signUpButton.css("color","#333");
 	signUpButton.css("background","#eee");
 	signInButton.css("color","#eee");
@@ -146,16 +154,37 @@ var onSignUpButtonClick = function() {
 	cP.prop('disabled', false);
 	cP.css('opacity','1');
 }
+
+var username, password;
 var onSubmitAuthFormButtonClick = function() {
+	var form = $('.form-signin');
+	form.submit(function(e){
+		e.preventDefault();
+	});
+	username = form.elements[0].value;
+	password = form.elements[1].value;
+	if (LOGIN_MODE == "SIGNIN") {
+		signIn();
+	}
+	else if (LOGIN_MODE = "SIGNUP") {
+		var c_password = form.elements[2].value;
+		if (password == c_password) {
+			signUp();
+		}
+		else {
+			alert("passwords do not match");
+		}
+	}
 }
 
 var signUp = function() {
 	var user = new Parse.User();
-	user.set("username", "my name");
-	user.set("password", "my pass");
+	user.set("username", username);
+	user.set("password", password);
 	user.set("email", gmail.get.user_email());
 	user.signUp(null, {
 	  success: function(user) {
+		LOGIN_MODE = "ACTIVE";
 		// Hooray! Let them use the app now.
 		alert("SUCCESSFULLY SIGNED UP");
 		isCurrentUserLoggedIn = true;
@@ -168,9 +197,10 @@ var signUp = function() {
 }
 ///////////////////////////
 //log in/out//
-var logIn = function() {
-	Parse.User.logIn("myname", "mypass", {
+var signIn = function() {
+	Parse.User.logIn(username, password, {
 	  success: function(user) {
+		LOGIN_MODE = "ACTIVE";
 		// Do stuff after successful login.
 		alert("SUCCESSFULLY LOGGED IN");
 		isCurrentUserLoggedIn = true;
