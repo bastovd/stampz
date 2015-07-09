@@ -1,6 +1,41 @@
 //Parse part///
 Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
 
+/*-------- FACEBOOK INITIALIZATION AND FUNCTIONS---------*/
+window.fbAsyncInit = function() {
+	Parse.FacebookUtils.init({
+	  appId      : '412442618941720',
+	  status     : true,  // check Facebook Login status
+      cookie     : true,  // enable cookies to allow Parse to access the session
+	  xfbml      : true,  // initialize Facebook social plugins on the page
+	  version    : 'v2.3'
+	});
+	// run code after FB SDK is loaded
+  };
+
+    (function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "//connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+   
+	var facebookLogin = function () {
+	    if (!Parse.FacebookUtils.isLinked(user)) {
+		Parse.FacebookUtils.link(user, null, {
+			success: function(user) {
+			  alert("Woohoo, user logged in with Facebook!");
+			},
+			error: function(user, error) {
+			  alert("User cancelled the Facebook login or did not fully authorize.");
+			}
+			});
+		}
+	}
+/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------*/
+
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
 var stamps_names = ["orange", "kiwi", "watermelon", "dragonfruit", "strawberry", "pineapple", "pomegranate"];

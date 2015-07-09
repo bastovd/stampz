@@ -39,20 +39,39 @@ var runCode = function() {
 		
 		gmail.tools.add_compose_button(compose_ref, compose_button_html, function() {
 		  // Code here
+			
+			//modal window for stamps client interface
 			gmail.tools.add_modal_window('Stamps', modal_html, 
-				function() { //ok
-					var compose_ref = gmail.dom.composes()[0];
-					//image_address = img;
-					//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-					setBodyHTML(compose_ref);
-					compose_ref.body(html);
-					removeId('#gmailJsModalBackground');
-					removeId('#gmailJsModalWindow');
-				}, 
-				function() { //cancel
-					removeId('#gmailJsModalBackground');
-					removeId('#gmailJsModalWindow');	
-				});
+			function() { //ok
+				var compose_ref = gmail.dom.composes()[0];
+				//image_address = img;
+				//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+				setBodyHTML(compose_ref);
+				compose_ref.body(html);
+				removeId('#gmailJsModalBackground');
+				removeId('#gmailJsModalWindow');
+			}, 
+			function() { //cancel
+				removeId('#gmailJsModalBackground');
+				removeId('#gmailJsModalWindow');	
+			});
+			
+			//authentication modal window
+			gmail.tools.add_modal_window('Login', login_html, 
+			function() { //ok
+				/*var compose_ref = gmail.dom.composes()[0];
+				//image_address = img;
+				//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
+				setBodyHTML(compose_ref);
+				compose_ref.body(html);*/
+				removeId('#gmailJsModalBackground');
+				removeId('#gmailJsModalWindow');
+			}, 
+			function() { //cancel
+				removeId('#gmailJsModalBackground');
+				removeId('#gmailJsModalWindow');	
+			});
+			
 		}, '');
 		///////////////////////////
 		
@@ -96,6 +115,15 @@ var checkLoaded = function() {
 		success: function (file_html) {
 			// success
 			modal_html += file_html;
+			//alert('success : ' + file_html);
+		}
+	});
+	$.ajax({
+		type: 'GET',
+		url: SERVER_ADDRESS+'login.html',
+		success: function (file_html) {
+			// success
+			login_html += file_html;
 			//alert('success : ' + file_html);
 		}
 	});
@@ -227,6 +255,7 @@ html =
 //modal window html
 var modal_html = '';
 var html_modal = '';
+var login_html = '';
 
 var compose_button_html =
 '<img src="https://rawgit.com/bastovd/stampz/master/icon.png" width="24px" height="24px" />';

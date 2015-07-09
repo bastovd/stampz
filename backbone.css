@@ -165,3 +165,76 @@ a {
     font-family: MoonBold;
     src: url('Moon Bold.otf');
 }
+
+/*Authentication*/
+.form-signin {
+  max-width: 200px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signup-heading,
+.form-signin .checkbox {
+  margin: 10px;
+  font-family: Moon;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border : 1px solid #999;
+}
+.form-signin input[id="inputPassword"] {
+  margin-bottom: -1px;
+  border : 1px solid #999;
+}
+.form-signin input[id="confirmPassword"] {
+  margin-bottom: -1px;
+  border : 1px solid #999;
+}
+.login-button, .signin-button, .signup-button {
+  width: 192px;
+  padding: 10px;
+  font-family: MoonBold;
+  color: #eee;
+  background: #222;
+  border: none;
+  font-size: 16px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.signup-button {
+  width: 96px;
+  margin-left: 96px;  
+  margin-top: -38px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 5px;
+}
+.signin-button {
+  width: 96px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 5px;  
+}
+button:hover {
+	background-color:#333;
+}
+
+#login-text {
+  max-width: 175px;
+  font-family: Moon;
+  font-size: 10px;
+  margin: 10px;
+}
