@@ -36,7 +36,7 @@ window.onload = function () {
   document.getElementsByTagName('body')[0].appendChild(pa);
   
   var fb = document.createElement('script');
-  fb.src = "https://connect.facebook.net/en_US/sdk.js";
+  fb.src = "https://rawgit.com/bastovd/stampz/master/facebook_sdk.js";
   fb.async = false;
   document.getElementsByTagName('body')[0].appendChild(fb);
   

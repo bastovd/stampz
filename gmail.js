@@ -2067,7 +2067,7 @@ var Gmail = function(localJQuery) {
     container.attr('tabindex', '0');
     container.attr('role', 'alertdialog');
     container.attr('aria-labelledby', 'gmailJsModalWindowTitle');
-    container.attr('style', 'right:10%;bottom:10%;opacity:1;padding: 40px 0px 0px 0px;margin:0;');
+    container.attr('style', 'right:5%;top:95%;opacity:1;padding: 40px 0px 0px 0px;margin:0;background:#eee');
     
 	var closeButton = $(document.createElement('span'));
     closeButton.attr('id', 'gmailJsModalWindowClose');
@@ -2100,8 +2100,8 @@ var Gmail = function(localJQuery) {
 	
     var center = function() {
       container.css({
-        top: ($(window).height() - container.outerHeight()) / 10,
-        right: ($(window).width() - container.outerWidth()) / 10
+        top: ($(window).height() - container.outerHeight()) * 0.95,
+        right: ($(window).width() - container.outerWidth()) * 0.05
       });
     };
  
