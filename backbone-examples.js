@@ -36,6 +36,7 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 
+/*-----filling out parse database with new stamps-----*/
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
 var stamps_names = ["orange", "kiwi", "watermelon", "dragonfruit", "strawberry", "pineapple", "pomegranate"];
@@ -77,11 +78,9 @@ success: function(object) {
 	  }
 	});
 }*/
-//-------end Parse part----------//
+/*---------------------------------------*/
 
-
-//Backbone part///
-
+/*----------parse query functions---------*/
 //query for all stamps
 var stamps_from_query = [];
 var stamps_query = new Parse.Query(ParseStamp);
@@ -94,6 +93,79 @@ stamps_query.find({
   }
 });
 ///////////////////////////
+
+//sign up//
+//document set up for authentication
+var isCurrentUserLoggedIn = false; 
+$('.signin-button').css("color","#eee");
+$('#confirmPassword').prop('disabled', true);
+var onSignInButtonClick = function() {
+	$('.signin-button').css("color","#333");
+	var cP = $('#confirmPassword');
+	cP.prop('disabled', true);
+	cP.css('opacity','0');
+}
+var onSignUpButtonClick = function() {
+	$('.signup-button').css("color","#333");
+	var cP = $('#confirmPassword');
+	cP.prop('disabled', false);
+	cP.css('opacity','1');
+}
+
+var signUp = function() {
+	var user = new Parse.User();
+	user.set("username", "my name");
+	user.set("password", "my pass");
+	user.set("email", gmail.get.user_email());
+	user.signUp(null, {
+	  success: function(user) {
+		// Hooray! Let them use the app now.
+		alert("SUCCESSFULLY SIGNED UP");
+		isCurrentUserLoggedIn = true;
+	  },
+	  error: function(user, error) {
+		// Show the error message somewhere and let the user try again.
+		alert("Error: FAILED TO SIGN UP! " + error.code + " " + error.message);
+	  }
+	});
+}
+///////////////////////////
+//log in/out//
+var logIn = function() {
+	Parse.User.logIn("myname", "mypass", {
+	  success: function(user) {
+		// Do stuff after successful login.
+		alert("SUCCESSFULLY LOGGED IN");
+		isCurrentUserLoggedIn = true;
+	  },
+	  error: function(user, error) {
+		// The login failed. Check error to see why.
+	  }
+	});
+}
+
+var logOut = function() {
+	Parse.User.logOut();
+}
+//////////////////////////
+
+//query current user//
+var checkCurrentUser = function() {
+	var currentUser = Parse.User.current();
+	if (currentUser) {
+		// do stuff with the user
+		isCurrentUserLoggedIn = true;
+	} else {
+		// show the signup or login page
+		isCurrentUserLoggedIn = false;
+	}
+}
+///////////////////////////
+
+//-------end Parse part----------//
+
+
+//Backbone part///
 
 //get query results and process
 var transferQueryOut = function(results) {

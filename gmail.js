@@ -2082,7 +2082,7 @@ var Gmail = function(localJQuery) {
     var contents = $(document.createElement('div'));
     contents.attr('id', 'gmailJsHelperModalWindowContent');
     contents.attr('class', 'Kj-JD-Jz');
-	contents.attr('style', 'opacity:1;background:#eee');
+	contents.attr('style', 'opacity:1;background:#eee;border-bottom-left-radius:5px;border-bottom-right-radius:5px');
     contents.html(content_html);
 	contents.append(closeButton);
     

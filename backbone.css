@@ -208,7 +208,7 @@ a {
   padding: 10px;
   font-family: MoonBold;
   color: #eee;
-  background: #222;
+  background: #333;
   border: none;
   font-size: 16px;
   border-bottom-left-radius: 5px;
@@ -229,7 +229,7 @@ a {
   border-top-left-radius: 5px;  
 }
 button:hover {
-	background-color:#333;
+	background-color:#222;
 }
 
 #login-text {
