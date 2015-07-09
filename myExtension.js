@@ -58,6 +58,7 @@ var runCode = function() {
 			
 			//authentication modal window
 			gmail.tools.add_helper_modal_window('Login', login_html);
+			onAuthModalOpen();
 			
 		}, '');
 		///////////////////////////

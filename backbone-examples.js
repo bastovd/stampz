@@ -97,19 +97,42 @@ stamps_query.find({
 //sign up//
 //document set up for authentication
 var isCurrentUserLoggedIn = false; 
-$('.signin-button').css("color","#eee");
-$('#confirmPassword').prop('disabled', true);
+
+var signInButton;
+var signUpButton;
+var submitAuthFormButton;
+
+var onAuthModalOpen = function() {
+	signInButton = $('.signin-button');
+	signUpButton = $('.signup-button');
+	submitAuthFormButton = $('.login-button');
+	
+	signInButton.on("click", onSignInButtonClick());
+	signUpButton.on("click", onSignUpButtonClick());
+	
+	signInButton.css("color","#333");
+	signInButton.css("background","#eee");
+	$('#confirmPassword').prop('disabled', true);
+}
 var onSignInButtonClick = function() {
-	$('.signin-button').css("color","#333");
+	signInButton.css("color","#333");
+	signInButton.css("background","#eee");
+	signUpButton.css("color","#eee");
+	signUpButton.css("background","#333");
 	var cP = $('#confirmPassword');
 	cP.prop('disabled', true);
 	cP.css('opacity','0');
 }
 var onSignUpButtonClick = function() {
-	$('.signup-button').css("color","#333");
+	signUpButton.css("color","#333");
+	signUpButton.css("background","#eee");
+	signInButton.css("color","#eee");
+	signInButton.css("background","#333");
 	var cP = $('#confirmPassword');
 	cP.prop('disabled', false);
 	cP.css('opacity','1');
+}
+var onSubmitAuthFormButtonClick = function() {
 }
 
 var signUp = function() {
