@@ -57,18 +57,7 @@ var runCode = function() {
 			});
 			
 			//authentication modal window
-			gmail.tools.add_helper_modal_window('Login', login_html, 
-			function() { //ok
-				/*var compose_ref = gmail.dom.composes()[0];
-				//image_address = img;
-				//image_address = '"https://rawgit.com/bastovd/stampz/master/stamp_sample2.png"'
-				setBodyHTML(compose_ref);
-				compose_ref.body(html);*/
-				removeId('#gmailJsModalWindow');
-			}, 
-			function() { //cancel
-				removeId('#gmailJsHelperModalWindow');	
-			});
+			gmail.tools.add_helper_modal_window('Login', login_html);
 			
 		}, '');
 		///////////////////////////
