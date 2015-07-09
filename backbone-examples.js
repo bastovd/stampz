@@ -2,7 +2,7 @@
 Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
 
 /*-------- FACEBOOK INITIALIZATION AND FUNCTIONS---------*/
-window.fbAsyncInit = function() {
+/*window.fbAsyncInit = function() {
 	Parse.FacebookUtils.init({
 	  appId      : '412442618941720',
 	  status     : true,  // check Facebook Login status
@@ -32,7 +32,7 @@ window.fbAsyncInit = function() {
 			}
 			});
 		}
-	}
+	}*/ //FIX: SOLVE FB SCRIPT LOADING FROM LOAD FILE
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 
