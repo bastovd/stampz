@@ -216,8 +216,8 @@ a {
 }
 .signup-button {
   width: 96px;
-  margin-left: 96px;  
-  margin-top: -38px;
+  margin-left: -4px;  
+  position:absolute;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 5px;

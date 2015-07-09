@@ -2050,6 +2050,90 @@ var Gmail = function(localJQuery) {
     
     $(window).resize(center);
   }
+  
+  api.tools.add_helper_modal_window = function(title, content_html, onClickOk, onClickCancel, onClickClose) {
+    var remove = function() {
+      $('#gmailJsHelperModalWindow').remove();
+    };
+    
+    // By default, clicking on cancel or close should clean up the modal window
+    onClickClose = onClickClose || remove;
+    onClickCancel = onClickCancel || remove;
+    
+    // Modal window wrapper
+    var container = $(document.createElement('div'));
+    container.attr('id','gmailJsHelperModalWindow');
+    container.attr('class', 'Kj-JD');
+    container.attr('tabindex', '0');
+    container.attr('role', 'alertdialog');
+    container.attr('aria-labelledby', 'gmailJsModalWindowTitle');
+    container.attr('style', 'left:50%;top:50%;opacity:1;padding:0;margin:0;');
+    
+	var closeButton = $(document.createElement('span'));
+    closeButton.attr('id', 'gmailJsModalWindowClose');
+    closeButton.attr('class', 'Kj-JD-K7-Jq');
+    closeButton.attr('role', 'button');
+    closeButton.attr('tabindex', '0');
+    closeButton.attr('aria-label', 'Close');
+	closeButton.attr('style', 'padding:15px');
+    closeButton.click(onClickClose);
+    
+    // Modal window contents
+    var contents = $(document.createElement('div'));
+    contents.attr('id', 'gmailJsModalWindowContent');
+    contents.attr('class', 'Kj-JD-Jz');
+	contents.attr('style', 'opacity:1');
+    contents.html(content_html);
+	contents.append(closeButton);
+    
+    // Modal window controls
+    var controls = $(document.createElement('div'));
+    controls.attr('class', 'Kj-JD-Jl');
+	controls.attr('style', 'text-align:right;position:absolute;right:0;bottom:4%;margin-top:0');
+    
+    var okButton = $(document.createElement('button'));
+    okButton.attr('id', 'gmailJsModalWindowOk');
+    okButton.attr('class', 'J-at1-auR J-at1-atl');
+    okButton.attr('name', 'ok');
+    okButton.text('OK');
+    okButton.click(onClickOk);
+    
+    var cancelButton = $(document.createElement('button'));
+    cancelButton.attr('id', 'gmailJsModalWindowCancel');
+    cancelButton.attr('name', 'cancel');
+    cancelButton.text('Cancel');
+    cancelButton.click(onClickCancel);
+    
+    controls.append(okButton);
+    controls.append(cancelButton);
+    
+    //container.append(header);
+	contents.append(controls);
+    container.append(contents);
+    //container.append(controls);
+   
+    $(document.body).append(background);
+    $(document.body).append(container);
+	
+    var setContainerSize = function() {
+		container.css({
+			width : ($('#main-container').css('width')),
+			height : ($('#main-container').css('height'))
+		});
+	};
+	
+    var center = function() {
+      container.css({
+        top: ($(window).height() - container.outerHeight()) / 2,
+        left: ($(window).width() - container.outerWidth()) / 2
+      });
+    };
+ 
+	setContainerSize();
+    center();
+    
+    $(window).resize(center);
+  }
 
   api.chat.is_hangouts = function() {
     if(api.tracker.hangouts != undefined) {

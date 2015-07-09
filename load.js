@@ -35,6 +35,11 @@ window.onload = function () {
   pa.async = false;
   document.getElementsByTagName('body')[0].appendChild(pa);
   
+  var fb = document.createElement('script');
+  fb.src = "https://connect.facebook.net/en_US/sdk.js";
+  fb.async = false;
+  document.getElementsByTagName('body')[0].appendChild(fb);
+  
   var cb = document.createElement('script');
   cb.src = "https://rawgit.com/bastovd/stampz/master/custombox.js";
   cb.async = false;
