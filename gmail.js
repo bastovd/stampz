@@ -2093,8 +2093,8 @@ var Gmail = function(localJQuery) {
 	
     var setContainerSize = function() {
 		container.css({
-			width : ($('.login-container').css('width')),
-			height : ($('.login-container').css('height'))
+			//width : ($('.login-container').css('width')),
+			//height : ($('.login-container').css('height'))
 		});
 	};
 	

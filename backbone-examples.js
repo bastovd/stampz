@@ -201,6 +201,7 @@ var signIn = function() {
 		logInSuccess("SUCCESSFULLY LOGGED IN");
 	  },
 	  error: function(user, error) {
+		alert("Error: FAILED TO SIGN IN! " + error.code + " " + error.message);
 		// The login failed. Check error to see why.
 	  }
 	});
