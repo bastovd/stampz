@@ -431,14 +431,16 @@ $.fn.backbone = function() {
                 { thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
                 { thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
 				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' }
+				{ thumbnail: SERVER_ADDRESS+'4-thumbnail.png', large: SERVER_ADDRESS+'4-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'5-thumbnail.png', large: SERVER_ADDRESS+'5-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'6-thumbnail.png', large: SERVER_ADDRESS+'6-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'7-thumbnail.png', large: SERVER_ADDRESS+'7-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'8-thumbnail.png', large: SERVER_ADDRESS+'8-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'9-thumbnail.png', large: SERVER_ADDRESS+'9-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'10-thumbnail.png', large: SERVER_ADDRESS+'10-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'11-thumbnail.png', large: SERVER_ADDRESS+'11-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'12-thumbnail.png', large: SERVER_ADDRESS+'12-thumbnail.png' },
+				{ thumbnail: SERVER_ADDRESS+'13-thumbnail.png', large: SERVER_ADDRESS+'13-thumbnail.png' }
             ]);
             
             this.large = new LargeView({
