@@ -203,21 +203,25 @@ var onSubmitAuthFormButtonClick = function() {
 	}
 }
 
-var signUp = function() {
-	getDefaultStampsSet();
-	while(stamps_from_query.length <= 0){
-		continue;
-	}
-	var user_stamps = stamps_from_query;
-	stamps_from_query = [];
-	alert(user_stamps);
-	
+var signUp = function() {	
 	var user = new Parse.User();
 	user.set("username", username);
 	user.set("password", password);
 	user.set("email", gmail.get.user_email());
 	user.signUp(null, {
 	  success: function(user) {
+		getDefaultStampsSet();
+		while(stamps_from_query.length <= 0){
+			continue;
+		}
+		var user_stamps = stamps_from_query;
+		stamps_from_query = [];
+		alert(user_stamps);
+		
+		var user_stamp_ids = [];
+		for (var i = 0; i < user_stamps.length; i++) {
+			user_stamp_ids[i] = user_stamps.get("stampid");
+		}
 		user.save({
 			stampids: user_stamp_ids,
 			stamps: user_stamps
