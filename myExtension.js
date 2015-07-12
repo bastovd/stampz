@@ -208,7 +208,7 @@ html =
 															text-align:right; \
 															position:relative;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
-		<img src="https://rawgit.com/bastovd/stampz/master/press.png" /> \
+		<img src="https://rawgit.com/bastovd/stampz/master/press.png" style="width:100px;position:absolute;margin-left:-40%;" /> \
 		</a> \
 		<div id="stamp" style="height: 150px; \
 								width: 115px; \
