@@ -104,7 +104,7 @@ var transferQueryOut = function(results) {
 	//console.log(JSON.stringify(stamps_from_query));
 	for (var i = 0; i < stamps_from_query.length; i++) {
 		var stamp = new Stamp({
-			objid: stamps_from_query[i].get("id");
+			objid: stamps_from_query[i].get("id"),
 			id: stamps_from_query[i].get("stampid"),
 			collection: stamps_from_query[i].get("collection"),
 			name: stamps_from_query[i].get("name"),
