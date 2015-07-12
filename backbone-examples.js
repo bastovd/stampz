@@ -93,7 +93,30 @@ var getDefaultStampsSet = function() {
 	stamps_query.contains("collection", "fruits");
 	stamps_query.find({
 	  success: function(results) {
-		 var s = transferQueryOut(results);
+		var user_stamps = results;
+		stamps_from_query = [];
+		alert(user_stamps);
+		
+		var user_stamp_ids = [];
+		for (var i = 0; i < user_stamps.length; i++) {
+			user_stamp_ids[i] = user_stamps.get("stampid");
+		}
+		var user = checkCurrentUser();
+		user.save({
+			stampids: user_stamp_ids,
+			stamps: user_stamps
+		}, 
+		{
+		  success: function(object) {
+			//$(".success").show();
+			logInSuccess("SUCCESSFULLY SIGNED UP");
+		  },
+		  error: function(model, error) {
+			//$(".error").show();
+			logInSuccess("COULD NOT SIGN UP");
+		  }
+		});
+		 //var s = transferQueryOut(results);
 	  },
 	  error: function(error) {
 	  }
@@ -212,31 +235,6 @@ var signUp = function() {
 	user.signUp(null, {
 	  success: function(user) {
 		getDefaultStampsSet();
-		while(stamps_from_query.length <= 0){
-			//continue;
-		}
-		var user_stamps = stamps_from_query;
-		stamps_from_query = [];
-		alert(user_stamps);
-		
-		var user_stamp_ids = [];
-		for (var i = 0; i < user_stamps.length; i++) {
-			user_stamp_ids[i] = user_stamps.get("stampid");
-		}
-		user.save({
-			stampids: user_stamp_ids,
-			stamps: user_stamps
-		}, 
-		{
-		  success: function(object) {
-			//$(".success").show();
-			logInSuccess("SUCCESSFULLY SIGNED UP");
-		  },
-		  error: function(model, error) {
-			//$(".error").show();
-			logInSuccess("COULD NOT SIGN UP");
-		  }
-		});
 	  },
 	  error: function(user, error) {
 		// Show the error message somewhere and let the user try again.
@@ -275,6 +273,7 @@ var checkCurrentUser = function() {
 	if (currentUser) {
 		// do stuff with the user
 		LOGIN_MODE = "ACTIVE";
+		return currentUser;
 	} else {
 		// show the signup or login page
 		LOGIN_MODE = "SIGNIN";
