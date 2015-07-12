@@ -341,7 +341,7 @@ $.fn.backbone = function() {
     
     var IterableCollecton = Backbone.Collection.extend({
         initialize: function() {
-            this.index = getUserCurrentStamp();
+            this.index = 0;
         },
         
         goTo: function(index) {
@@ -392,7 +392,7 @@ $.fn.backbone = function() {
                 .prop('src', photo.get('large'));
             
             this.$el.append(img);
-			setUserCurrentStamp(photo.id);
+			//setUserCurrentStamp(photo.id);
 			setStamp(photo.get('large')); //set stamp as selected in myExtension.js
             
             return this;
