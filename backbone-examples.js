@@ -87,30 +87,28 @@ var addStamps = function() {
 /*----------parse query functions---------*/
 //query for all stamps
 var stamps_from_query = [];
-var getDefaultStampsSet = function() {
+var setUserDefaultStampsSet = function() {
 	var stamps_query = new Parse.Query(ParseStamp);
 	//stamps_query.include("bla");
 	stamps_query.contains("collection", "fruits");
+	stamps_query.ascending("stampid");
 	stamps_query.find({
 	  success: function(results) {
 		//stamps_from_query = [];
 		//alert(user_stamps);
 		
-		var user_stamps = [];
-		var user_stamp_ids = [];
-		var pointer = undefined;
-		var objId = undefined;
-		for (var i = 0; i < results.length; i++) {
-			objId = results[i].id;
-			pointer = {"__type":"Pointer","className":"Stamp","objectId":objId};
-			user_stamps[i] = pointer;
-			user_stamp_ids[i] = results[i].get("stampid");
-		}
+		//var user_stamps = [];
+		//var user_stamp_ids = [];
+		//var pointer = undefined;
+		//var objId = undefined;
 		var user = checkCurrentUser();
-		user.save({
-			stampids: user_stamp_ids,
-			stamps: user_stamps
-		}, 
+		for (var i = 0; i < results.length; i++) { 
+			//objId = results[i].id;
+			//pointer = {"__type":"Pointer","className":"Stamp","objectId":objId}; //not sure if this is working properly
+			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":results[i].id});//user_stamps[i] = pointer;
+			user.add("stampids", results[i].get("stampid");//user_stamp_ids[i] = results[i].get("stampid");
+		}
+		user.save(null, 
 		{
 		  success: function(object) {
 			//$(".success").show();
@@ -126,6 +124,30 @@ var getDefaultStampsSet = function() {
 	  error: function(error) {
 	  }
 	});
+}
+
+var addStampToUser = function(stamp) {
+	var user = checkCurrentUser();
+	if (user) {
+		user.add("stampids", stamp.stampid);
+		user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.id});
+		user.save();
+	}
+}
+
+var getStamps = function() {
+	var stamps_query = new Parse.Query(ParseStamp);
+	stamps_query.find({
+		success: function(results) {
+		},
+		error: function(error) {
+		}
+	});
+}
+
+var getUserStampsIds = function() {
+	var user = checkCurrentUser();
+	return user.get("stampids");
 }
 
 //get query results and process
@@ -239,7 +261,7 @@ var signUp = function() {
 	user.set("email", gmail.get.user_email());
 	user.signUp(null, {
 	  success: function(user) {
-		getDefaultStampsSet();
+		setUserDefaultStampsSet();
 	  },
 	  error: function(user, error) {
 		// Show the error message somewhere and let the user try again.
@@ -466,7 +488,13 @@ $.fn.backbone = function() {
         
         initialize: function() {
             this.photos = new Photos();
-            this.photos.add([
+			var stampids = getUserStampsIds();
+			var fotos = [];
+			for (var i = 0; i < stampids.length; i++) {
+				fotos.add({ thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' });
+			}
+			this.photos.add(fotos);
+            /*this.photos.add([
                 { thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
                 { thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
                 { thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
@@ -481,7 +509,7 @@ $.fn.backbone = function() {
 				{ thumbnail: SERVER_ADDRESS+'11-thumbnail.png', large: SERVER_ADDRESS+'11-thumbnail.png' },
 				{ thumbnail: SERVER_ADDRESS+'12-thumbnail.png', large: SERVER_ADDRESS+'12-thumbnail.png' },
 				{ thumbnail: SERVER_ADDRESS+'13-thumbnail.png', large: SERVER_ADDRESS+'13-thumbnail.png' }
-            ]);
+            ]);*/
             
             this.large = new LargeView({
                 collection: this.photos
