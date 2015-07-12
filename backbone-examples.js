@@ -106,7 +106,7 @@ var setUserDefaultStampsSet = function() {
 			//objId = results[i].id;
 			//pointer = {"__type":"Pointer","className":"Stamp","objectId":objId}; //not sure if this is working properly
 			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":results[i].id});//user_stamps[i] = pointer;
-			user.add("stampids", results[i].get("stampid");//user_stamp_ids[i] = results[i].get("stampid");
+			user.add("stampids", results[i].get("stampid"));//user_stamp_ids[i] = results[i].get("stampid");
 		}
 		user.save(null, 
 		{
