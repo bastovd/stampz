@@ -39,7 +39,7 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 /*-----filling out parse database with new stamps-----*/
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
-var stamps_names = ["pomegranate", "kiwi", "strawberry", "watermelon", "pineapple", "dragonfruit", "orange"];
+var stamps_names = ["pomegranate", "pomegranate", "kiwi", "kiwi", "strawberry", "strawberry", "watermelon", "watermelon", "pineapple", "pineapple", "dragonfruit", "dragonfruit", "orange", "orange"];
 var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]; //0 = full; 1 = partial
 var stamps_count = 14;
 
@@ -62,12 +62,12 @@ success: function(object) {
 /////////////////////////////////
 
 //populating the parse database with stamps
-for (var i = 0, j = 0; i < stamps_count; i++) {
+for (var i = 0; i < stamps_count; i++) {
 	var parseStamp = new ParseStamp();
 	parseStamp.save({
 		stampid: i,
-		name: stamps_names[j],
-		collection: "fruit-cuts",
+		name: stamps_names[i],
+		collection: "fruits",
 		price: 0,
 		type: stamps_types[i]
 	}, 
@@ -79,22 +79,42 @@ for (var i = 0, j = 0; i < stamps_count; i++) {
 		$(".error").show();
 	  }
 	});
-	if (i%2 == 1) j++;
 }
 /*---------------------------------------*/
 
 /*----------parse query functions---------*/
 //query for all stamps
-var stamps_from_query = [];
-var stamps_query = new Parse.Query(ParseStamp);
-//stamps_query.include("bla");
-stamps_query.find({
-  success: function(results) {
-	transferQueryOut(results);
-  },
-  error: function(error) {
-  }
-});
+var getDefaultStampsSet = function() {
+	var stamps_from_query = [];
+	var stamps_query = new Parse.Query(ParseStamp);
+	//stamps_query.include("bla");
+	stamps_query.contains("collection", "fruits");
+	stamps_query.find({
+	  success: function(results) {
+		transferQueryOut(results);
+	  },
+	  error: function(error) {
+	  }
+	});
+}
+
+//get query results and process
+var transferQueryOut = function(results) {
+	stamps_from_query = results;
+	//console.log(JSON.stringify(stamps_from_query));
+	for (var i = 0; i < stamps_from_query.length; i++) {
+		var stamp = new Stamp({
+			objid: stamps_from_query[i].get("id");
+			id: stamps_from_query[i].get("stampid"),
+			collection: stamps_from_query[i].get("collection"),
+			name: stamps_from_query[i].get("name"),
+			price: stamps_from_query[i].get("price")
+		});
+		console.log(JSON.stringify(stamp));
+	}
+}
+
+
 ///////////////////////////
 
 //sign up//
@@ -182,13 +202,32 @@ var onSubmitAuthFormButtonClick = function() {
 }
 
 var signUp = function() {
+	var user_stamps = getDefaultStampsSet();
+	alert(user_stamps);
+	var user_stamps_ids = [];
+	for (var i = 0; i < user_stamps.length; i++) {
+		user_stamps_ids[i] = user_stamps[i].get("stampid");
+	}
 	var user = new Parse.User();
 	user.set("username", username);
 	user.set("password", password);
 	user.set("email", gmail.get.user_email());
 	user.signUp(null, {
 	  success: function(user) {
-		logInSuccess("SUCCESSFULLY SIGNED UP");	
+		user.save({
+			stampids: user_stamp_ids,
+			stamps: user_stamps
+		}, 
+		{
+		  success: function(object) {
+			//$(".success").show();
+			logInSuccess("SUCCESSFULLY SIGNED UP");
+		  },
+		  error: function(model, error) {
+			//$(".error").show();
+			logInSuccess("COULD NOT SIGN UP");
+		  }
+		});
 	  },
 	  error: function(user, error) {
 		// Show the error message somewhere and let the user try again.
@@ -238,21 +277,6 @@ var checkCurrentUser = function() {
 
 
 //Backbone part///
-
-//get query results and process
-var transferQueryOut = function(results) {
-	stamps_from_query = results;
-	//console.log(JSON.stringify(stamps_from_query));
-	for (var i = 0; i < stamps_from_query.length; i++) {
-		var stamp = new Stamp({
-			id: stamps_from_query[i].get("stampid"),
-			collection: stamps_from_query[i].get("collection"),
-			name: stamps_from_query[i].get("name"),
-			price: stamps_from_query[i].get("price")
-		});
-		console.log(JSON.stringify(stamp));
-	}
-}
 
 //backbone stamp class
 var Stamp = Backbone.Model.extend({
