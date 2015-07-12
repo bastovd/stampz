@@ -93,7 +93,7 @@ var getDefaultStampsSet = function() {
 	stamps_query.contains("collection", "fruits");
 	stamps_query.find({
 	  success: function(results) {
-		 transferQueryOut(results);
+		 var s = transferQueryOut(results);
 	  },
 	  error: function(error) {
 	  }
@@ -114,6 +114,7 @@ var transferQueryOut = function(results) {
 		});
 		console.log(JSON.stringify(stamp));
 	}
+	return stamps_from_query;
 }
 
 
@@ -212,7 +213,7 @@ var signUp = function() {
 	  success: function(user) {
 		getDefaultStampsSet();
 		while(stamps_from_query.length <= 0){
-			continue;
+			//continue;
 		}
 		var user_stamps = stamps_from_query;
 		stamps_from_query = [];
