@@ -36,24 +36,27 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 
+////////TOOLS/////////////////////
 /*-----filling out parse database with new stamps-----*/
 
 //pupulating the parse database with collections
 var ParseCollection = Parse.Object.extend("Collection");
 var parseCollection = new ParseCollection();
-/*parseCollection.save({
-collectionid: 0,
-name: "fruit-cuts",
-count: 7
-},
-{
-success: function(object) {
-	$(".success").show();
-  },
-  error: function(model, error) {
-	$(".error").show();
-  }
-});*/
+var addCollection = function(c_id, c_name, c_count) {
+	parseCollection.save({
+	collectionid: c_id,
+	name: c_name,
+	count: c_count
+	},
+	{
+	success: function(object) {
+		$(".success").show();
+	  },
+	  error: function(model, error) {
+		$(".error").show();
+	  }
+	});
+}
 /////////////////////////////////
 
 //populating the parse database with stamps
@@ -83,6 +86,7 @@ var addStamps = function() {
 	}
 }
 /*---------------------------------------*/
+///////////////////////////////////////////////////
 
 /*----------parse query functions---------*/
 //query for all stamps
@@ -99,6 +103,7 @@ var setUserDefaultStampsSet = function() {
 			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":results[i].id}); //not sure if it works correctly
 			user.add("stampids", results[i].get("stampid"));
 		}
+		user.set("current",0);
 		user.save(null, 
 		{
 		  success: function(object) {
@@ -138,6 +143,17 @@ var getStamps = function() {
 var getUserStampsIds = function() {
 	var user = checkCurrentUser();
 	return user.get("stampids");
+}
+
+var setUserCurrentStamp = function(val) {
+	var user = checkCurrentUser();
+	user.set("current",val);
+	user.save();
+}
+
+var getUserCurrentStamp = function() {
+	var user = checkCurrentUser();
+	return user.get("current");
 }
 
 //get query results and process
@@ -325,7 +341,7 @@ $.fn.backbone = function() {
     
     var IterableCollecton = Backbone.Collection.extend({
         initialize: function() {
-            this.index = 0;
+            this.index = getUserCurrentStamp();
         },
         
         goTo: function(index) {
@@ -376,6 +392,7 @@ $.fn.backbone = function() {
                 .prop('src', photo.get('large'));
             
             this.$el.append(img);
+			setUserCurrentStamp(photo.id);
 			setStamp(photo.get('large')); //set stamp as selected in myExtension.js
             
             return this;
@@ -484,22 +501,6 @@ $.fn.backbone = function() {
 				fotos[i] = { thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' };
 			}
 			this.photos.add(fotos);
-            /*this.photos.add([
-                { thumbnail: SERVER_ADDRESS+'0-thumbnail.png', large: SERVER_ADDRESS+'0-thumbnail.png' },
-                { thumbnail: SERVER_ADDRESS+'1-thumbnail.png', large: SERVER_ADDRESS+'1-thumbnail.png' },
-                { thumbnail: SERVER_ADDRESS+'2-thumbnail.png', large: SERVER_ADDRESS+'2-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'3-thumbnail.png', large: SERVER_ADDRESS+'3-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'4-thumbnail.png', large: SERVER_ADDRESS+'4-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'5-thumbnail.png', large: SERVER_ADDRESS+'5-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'6-thumbnail.png', large: SERVER_ADDRESS+'6-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'7-thumbnail.png', large: SERVER_ADDRESS+'7-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'8-thumbnail.png', large: SERVER_ADDRESS+'8-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'9-thumbnail.png', large: SERVER_ADDRESS+'9-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'10-thumbnail.png', large: SERVER_ADDRESS+'10-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'11-thumbnail.png', large: SERVER_ADDRESS+'11-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'12-thumbnail.png', large: SERVER_ADDRESS+'12-thumbnail.png' },
-				{ thumbnail: SERVER_ADDRESS+'13-thumbnail.png', large: SERVER_ADDRESS+'13-thumbnail.png' }
-            ]);*/
             
             this.large = new LargeView({
                 collection: this.photos
