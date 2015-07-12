@@ -86,14 +86,14 @@ var addStamps = function() {
 
 /*----------parse query functions---------*/
 //query for all stamps
+var stamps_from_query = [];
 var getDefaultStampsSet = function() {
-	var stamps_from_query = [];
 	var stamps_query = new Parse.Query(ParseStamp);
 	//stamps_query.include("bla");
 	stamps_query.contains("collection", "fruits");
 	stamps_query.find({
 	  success: function(results) {
-		 return transferQueryOut(results);
+		 transferQueryOut(results);
 	  },
 	  error: function(error) {
 	  }
@@ -114,7 +114,6 @@ var transferQueryOut = function(results) {
 		});
 		console.log(JSON.stringify(stamp));
 	}
-	return stamps_from_query;
 }
 
 
@@ -205,12 +204,14 @@ var onSubmitAuthFormButtonClick = function() {
 }
 
 var signUp = function() {
-	var user_stamps = getDefaultStampsSet();
-	alert(user_stamps);
-	var user_stamps_ids = [];
-	for (var i = 0; i < user_stamps.length; i++) {
-		user_stamps_ids[i] = user_stamps[i].get("stampid");
+	getDefaultStampsSet();
+	while(stamps_from_query.length <= 0){
+		continue;
 	}
+	var user_stamps = stamps_from_query;
+	stamps_from_query = [];
+	alert(user_stamps);
+	
 	var user = new Parse.User();
 	user.set("username", username);
 	user.set("password", password);
