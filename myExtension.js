@@ -208,12 +208,14 @@ html =
 															text-align:right; \
 															position:relative;"> \
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
+		<img src="https://rawgit.com/bastovd/stampz/master/press.png" /> \
+		</a> \
 		<div id="stamp" style="height: 150px; \
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
 								margin-left: 75%;"> \
-		</div></a> \
+		</div> \
 	</div> \
 	<br> \
 	<div id="body-text-div">' + new_text + 
