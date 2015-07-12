@@ -93,13 +93,18 @@ var getDefaultStampsSet = function() {
 	stamps_query.contains("collection", "fruits");
 	stamps_query.find({
 	  success: function(results) {
-		var user_stamps = results;
-		stamps_from_query = [];
-		alert(user_stamps);
+		//stamps_from_query = [];
+		//alert(user_stamps);
 		
+		var user_stamps = [];
 		var user_stamp_ids = [];
-		for (var i = 0; i < user_stamps.length; i++) {
-			user_stamp_ids[i] = user_stamps.get("stampid");
+		var pointer = undefined;
+		var objId = undefined;
+		for (var i = 0; i < results.length; i++) {
+			objId = results[i].id;
+			pointer = {"__type":"Pointer","className":"Stamp","objectId":objId};
+			user_stamps[i] = pointer;
+			user_stamp_ids[i] = results[i].get("stampid");
 		}
 		var user = checkCurrentUser();
 		user.save({
