@@ -40,7 +40,7 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
 var stamps_names = ["pomegranate", "kiwi", "strawberry", "watermelon", "pineapple", "dragonfruit", "orange"];
-var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,]; //0 = full; 1 = partial
+var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]; //0 = full; 1 = partial
 var stamps_count = 14;
 
 //pupulating the parse database with collections
@@ -69,7 +69,7 @@ for (var i = 0, j = 0; i < stamps_count; i++) {
 		name: stamps_names[j],
 		collection: "fruit-cuts",
 		price: 0,
-		type: stamps_types[i];
+		type: stamps_types[i]
 	}, 
 	{
 	  success: function(object) {
