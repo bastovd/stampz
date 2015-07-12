@@ -39,8 +39,9 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 /*-----filling out parse database with new stamps-----*/
 var ParseStamp = Parse.Object.extend("Stamp");
 //stamps array
-var stamps_names = ["orange", "kiwi", "watermelon", "dragonfruit", "strawberry", "pineapple", "pomegranate"];
-var stamps_count = 7;
+var stamps_names = ["pomegranate", "kiwi", "strawberry", "watermelon", "pineapple", "dragonfruit", "orange"];
+var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,]; //0 = full; 1 = partial
+var stamps_count = 14;
 
 //pupulating the parse database with collections
 var ParseCollection = Parse.Object.extend("Collection");
@@ -61,13 +62,14 @@ success: function(object) {
 /////////////////////////////////
 
 //populating the parse database with stamps
-/*for (var i = 0; i < stamps_count; i++) {
+for (var i = 0, j = 0; i < stamps_count; i++) {
 	var parseStamp = new ParseStamp();
 	parseStamp.save({
 		stampid: i,
-		name: stamps_names[i],
+		name: stamps_names[j],
 		collection: "fruit-cuts",
-		price: 0
+		price: 0,
+		type: stamps_types[i];
 	}, 
 	{
 	  success: function(object) {
@@ -77,7 +79,8 @@ success: function(object) {
 		$(".error").show();
 	  }
 	});
-}*/
+	if (i%2 == 1) j++;
+}
 /*---------------------------------------*/
 
 /*----------parse query functions---------*/
