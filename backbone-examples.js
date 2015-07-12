@@ -37,11 +37,6 @@ Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb8
 /*-----------------------------------------------------------*/
 
 /*-----filling out parse database with new stamps-----*/
-var ParseStamp = Parse.Object.extend("Stamp");
-//stamps array
-var stamps_names = ["pomegranate", "pomegranate", "kiwi", "kiwi", "strawberry", "strawberry", "watermelon", "watermelon", "pineapple", "pineapple", "dragonfruit", "dragonfruit", "orange", "orange"];
-var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]; //0 = full; 1 = partial
-var stamps_count = 14;
 
 //pupulating the parse database with collections
 var ParseCollection = Parse.Object.extend("Collection");
@@ -62,23 +57,30 @@ success: function(object) {
 /////////////////////////////////
 
 //populating the parse database with stamps
-for (var i = 0; i < stamps_count; i++) {
-	var parseStamp = new ParseStamp();
-	parseStamp.save({
-		stampid: i,
-		name: stamps_names[i],
-		collection: "fruits",
-		price: 0,
-		type: stamps_types[i]
-	}, 
-	{
-	  success: function(object) {
-		$(".success").show();
-	  },
-	  error: function(model, error) {
-		$(".error").show();
-	  }
-	});
+var ParseStamp = Parse.Object.extend("Stamp");
+//stamps array
+var stamps_names = ["pomegranate", "pomegranate", "kiwi", "kiwi", "strawberry", "strawberry", "watermelon", "watermelon", "pineapple", "pineapple", "dragonfruit", "dragonfruit", "orange", "orange"];
+var stamps_types = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]; //0 = full; 1 = partial
+var stamps_count = 14;
+var addStamps = function() {
+	for (var i = 0; i < stamps_count; i++) {
+		var parseStamp = new ParseStamp();
+		parseStamp.save({
+			stampid: i,
+			name: stamps_names[i],
+			collection: "fruits",
+			price: 0,
+			type: stamps_types[i] //worked!!!
+		}, 
+		{
+		  success: function(object) {
+			$(".success").show();
+		  },
+		  error: function(model, error) {
+			$(".error").show();
+		  }
+		});
+	}
 }
 /*---------------------------------------*/
 
@@ -91,7 +93,7 @@ var getDefaultStampsSet = function() {
 	stamps_query.contains("collection", "fruits");
 	stamps_query.find({
 	  success: function(results) {
-		transferQueryOut(results);
+		 return transferQueryOut(results);
 	  },
 	  error: function(error) {
 	  }
@@ -112,6 +114,7 @@ var transferQueryOut = function(results) {
 		});
 		console.log(JSON.stringify(stamp));
 	}
+	return stamps_from_query;
 }
 
 
