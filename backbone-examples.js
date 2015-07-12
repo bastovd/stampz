@@ -94,19 +94,10 @@ var setUserDefaultStampsSet = function() {
 	stamps_query.ascending("stampid");
 	stamps_query.find({
 	  success: function(results) {
-		//stamps_from_query = [];
-		//alert(user_stamps);
-		
-		//var user_stamps = [];
-		//var user_stamp_ids = [];
-		//var pointer = undefined;
-		//var objId = undefined;
 		var user = checkCurrentUser();
 		for (var i = 0; i < results.length; i++) { 
-			//objId = results[i].id;
-			//pointer = {"__type":"Pointer","className":"Stamp","objectId":objId}; //not sure if this is working properly
-			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":results[i].id});//user_stamps[i] = pointer;
-			user.add("stampids", results[i].get("stampid"));//user_stamp_ids[i] = results[i].get("stampid");
+			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":results[i].id}); //not sure if it works correctly
+			user.add("stampids", results[i].get("stampid"));
 		}
 		user.save(null, 
 		{
@@ -119,7 +110,6 @@ var setUserDefaultStampsSet = function() {
 			logInSuccess("COULD NOT SIGN UP");
 		  }
 		});
-		 //var s = transferQueryOut(results);
 	  },
 	  error: function(error) {
 	  }
@@ -491,7 +481,7 @@ $.fn.backbone = function() {
 			var stampids = getUserStampsIds();
 			var fotos = [];
 			for (var i = 0; i < stampids.length; i++) {
-				fotos.add({ thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' });
+				fotos[i] = { thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' };
 			}
 			this.photos.add(fotos);
             /*this.photos.add([
