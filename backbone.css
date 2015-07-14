@@ -40,6 +40,8 @@
 	overflow-y : overlay;
 	cursor : pointer;
 }
+
+/*-----scrollbar-----*/
 #gallery::-webkit-scrollbar {
 	width : 3px;
 }
@@ -50,6 +52,7 @@
 	background : rgba(0,0,0,0.5);
 	height : 20%;
 }
+/*---------------*/
 
 #account {
 	text-align : right;
