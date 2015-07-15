@@ -357,6 +357,7 @@ $.fn.backbone = function() {
         },
         
         current: function() {
+			//alert(this.index);
             return this.at(this.index);
         }
         
@@ -411,7 +412,7 @@ $.fn.backbone = function() {
         el: '#thumbnails',
         
         events: {
-            'click img': 'click'
+            'click div': 'click'
         },
         
         initialize: function() {
@@ -421,9 +422,22 @@ $.fn.backbone = function() {
         render: function() {
             var imgs = [];
             $.each(this.collection.models, function(index, photo) {
-                var thumbnail = $('<img>')
+                /*var thumbnail = $('<img>')
                        .prop('src', photo.get('thumbnail'))
-                       .data('index', index);
+                       .data('index', index);*/
+				var thumbnail = $('<div>')
+						.prop('id',"stamp-container")
+						.data('index',index);
+				var thumbnail_stamp = $('<img>')
+                        .prop('src', photo.get('thumbnail'))
+						.prop('id', "stamp-image");
+				var thumbnail_add_stamp_button = $('<img>')
+						.prop('src', 'https://rawgit.com/bastovd/stampz/master/add-button.png')
+						.prop('id', "add-stamp-button");
+				
+				thumbnail.append(thumbnail_stamp);
+				thumbnail.append(thumbnail_add_stamp_button);
+				
                 imgs.push(thumbnail);
             });
             this.$el.append(imgs);

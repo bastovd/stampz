@@ -82,17 +82,49 @@ b {
 	/*background: url('fruit-stamps.png');
 	background-size:cover;*/
 	overflow:overlay;
+	overflow-x: hidden;
+}
+
+#top-promo {
+	background: #333;
+	height:260px;
+}
+#inside-title {
+	height: 50px;
+	width:100%;
+	position:absolute;
+	text-align:center;
+	top:210px;
+	font-family: MoonBold;
+	font-size:20;
+	color:#eee;
 }
 
 /*-------gallery-----*/
-#thumbnails img {
-    width : 15%;
-	padding : 2.5%;
+#stamp-container {
+	width:20%;
+	display:inline-block;
+	position:relative;
+	overflow:hidden;
+}
+
+#add-stamp-button {
+	position:absolute;
+	width:10%;
+	top:90%;
+	left:45%;
+}
+
+#stamp-image {
+	padding : 15%;
 	margin : 0;
+	width:70%;
 }
 
 #thumbnails .active-stamp {
 	background : #222;
+	border: 1px solid;
+	margin: -1px;
 }
 
 #large {

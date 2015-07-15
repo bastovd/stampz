@@ -13,7 +13,14 @@
 			</div>
 			
 			<div id="gallery">
+				<div id="top-promo">
+					
+					<div id="inside-title">
+						<p style="margin-top:15px;">GET MORE STAMPS</p>
+					</div>
+				</div>
 				<div id="thumbnails" style="height:100%"></div>
+				<div id="footer" style="height:100px; width:100%"></div>
 			</div>
 			
 			<div id="right-sidebar">
@@ -44,6 +51,8 @@
 		//set gallery width
 		var w = (window.innerWidth-60-320);
 		$('#gallery').css({width:w});
+		$('#top-promo').css({width:w});
+		$('#footer').css({bottom:0});
 		//load backbone
 		$("#thumbnails").backbone();
 		</script>
