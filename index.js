@@ -125,8 +125,8 @@ var setUserDefaultStampsSet = function() {
 
 var addStampToUser = function(stamp, callback) {
 	var user = checkCurrentUser();
-	alert(JSON.stringify(stamp)+ " " + stamp.objectid);
-	console.log(stamp.objectid);
+	//alert(JSON.stringify(stamp)+ " " + stamp.objectid);
+	//console.log(stamp.objectid);
 	
 	if (user) {
 		user.add("stampids", stamp.id);
@@ -155,7 +155,7 @@ var getStamps = function(callback) {
 				});
 				stamp.objectid = results[i].id,
 				stamps_from_query[i] = stamp;
-				console.log(stamp.objectid);
+				//console.log(stamp.objectid);
 				//console.log(JSON.stringify(stamp));
 			}
 			callback();
@@ -197,7 +197,7 @@ var transferQueryOut = function(results) {
 		});
 		stamps_from_query[i] = stamp;
 		//stamps_ids[i] = stamps_from_query[i].get("id");
-		console.log(JSON.stringify(stamp));
+		//console.log(JSON.stringify(stamp));
 	}
 	//return stamps_from_query;
 }
@@ -329,7 +329,7 @@ var logInSuccess = function(t) {
 	ed.css('background','#00bb33').children().first().text(t);
 	ed.fadeIn("fast", function(){
 		setTimeout(function(){
-		  $('#login-modal').css('display','none');
+		  $('#login-modal').fadeOut("fast");//css('display','none');
 		}, 1500);
 	});
 	//removeId('#gmailJsHelperModalWindow');
@@ -378,8 +378,15 @@ console.log(JSON.stringify(stamp1));*/
 var displayCurrentIndex = function(index) {
 	var stampToAdd = stamps_from_query[index];
 	//alert(index);
-	addStampToUser(stampToAdd, function(){ //doesn't work!!!
-		alert("stamp added");
+	addStampToUser(stampToAdd, function(){ 
+		var notification_display = $('#notification-display');
+		notification_display.children().first().text("stamp added to your collection");
+		notification_display.fadeIn("fast", function(){
+			setTimeout(function(){
+			  notification_display.fadeOut("fast");
+			}, 2000);
+		});
+		//alert("stamp added to your collection");
 	});
 }
 

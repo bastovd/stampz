@@ -255,4 +255,18 @@ b {
   border:1px solid #333;
   z-index:2;
 }
+
+#notification-display {
+  top:0px;
+  left:60px;
+  height: 50px;
+  background: rgba(0,187,51,0.75);
+  color: #eee;
+  position: fixed;
+  text-align:center;
+  font-family:Moon;
+  font-size:12;
+  border:1px solid #333;
+  display:none;
+}
 /*---------------------*/
