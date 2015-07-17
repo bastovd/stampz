@@ -114,6 +114,11 @@ b {
 	top:85%;
 	left:82%;
 }
+#add-stamp-button:active {
+	width:7%;
+	padding:3%;
+	background:#333;
+}
 
 #toggle-stamp-button {
 	position:absolute;
@@ -127,6 +132,10 @@ b {
 	margin : 0;
 	width:70%;
 }
+/*#stamp-image:hover {
+	padding : 13%;
+	width:72%;
+}*/
 
 #thumbnails .active-stamp {
 	background : #222;
