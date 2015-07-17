@@ -25,6 +25,7 @@
 			
 			<div id="right-sidebar">
 				<div id="sidebar-ad"></div>
+				<img src="https://rawgit.com/bastovd/stampz/master/envelope.png" style="position:relative;width:100%;top:300px"/>
 				<div id="info">
 					<p id="info-p"><b>LoveStamp</b> provides free digital stamps for everyone!
 					To be able to send digital stamps from LoveStamp
@@ -42,6 +43,35 @@
 			</div>
 		</div>
 		
+		<div id="login-modal">
+			<div id="error-display">
+				<p style="padding:5%">ERROR</p>
+			</div>
+			<div class="login-container" style="width : 225px">
+			  <div style="width:100%;height:50px;background:#333"></div>
+			  <form class="form-signin">
+				<button class="signin-button">SIGN IN</button>
+				<!--<button class="signup-button">SIGN UP</button>-->
+				<!--<h2 class="form-signin-heading">SIGN IN</h2>
+				<h2 class="form-signup-heading">SIGN UP</h2>-->
+				<input type="text" id="inputUsername" class="form-control" placeholder="username" autofocus>
+				<input type="password" id="inputPassword" class="form-control" placeholder="password" >
+				<!--<label for="confirmPassword" class="sr-only">CONFIRM</label>
+				<input type="password" id="confirmPassword" class="form-control" placeholder="confirm password" >-->
+				<p id="login-text">To link email address<br>
+				sign in or sign up in the<br>
+				<b style="font-size:14px">chrome extension</b><br> in the gmail client.</p>
+				<!--<div class="checkbox">
+				  <label style="font-size: 12px; font-family: MoonBold;">
+					<input type="checkbox" value="remember-me"> Remember me
+				  </label>
+				</div>-->
+				<button class="login-button" type="submit">Submit</button>
+			  </form>
+
+			</div> <!-- /container -->
+		</div>
+		
 		<script src="jquery-1.10.2.min.js"></script>
 		<script src="underscore-min.js"></script>
 		<script src="https://rawgit.com/bastovd/stampz/master/backbone-min.js"></script>
@@ -53,6 +83,14 @@
 		$('#gallery').css({width:w});
 		$('#top-promo').css({width:w});
 		$('#footer').css({bottom:0});
+		$('.login-container').css({
+			left: $('#gallery').innerWidth()/2 - $('.login-container').innerWidth()/2+60,
+			top: $('#gallery').innerHeight()/2 - $('.login-container').innerHeight()/2
+		});
+		$('#error-display').css({
+			top: $('.login-container').position().top,
+			left: $('.login-container').position().left
+		});
 		//load backbone
 		$("#thumbnails").backbone();
 		</script>

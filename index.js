@@ -1,6 +1,7 @@
 var SERVER_ADDRESS = "https://rawgit.com/bastovd/stampz/master/";
 //Parse part///
 Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
+//logOut();
 
 /*-------- FACEBOOK INITIALIZATION AND FUNCTIONS---------*/
 /*window.fbAsyncInit = function() {
@@ -122,20 +123,43 @@ var setUserDefaultStampsSet = function() {
 	});
 }
 
-var addStampToUser = function(stamp) {
+var addStampToUser = function(stamp, callback) {
 	var user = checkCurrentUser();
+	alert(JSON.stringify(stamp)+ " " + stamp.objectid);
+	console.log(stamp.objectid);
+	
 	if (user) {
-		user.add("stampids", stamp.stampid);
-		user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.id});
+		user.add("stampids", stamp.id);
+		user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.objectid});
 		user.save();
+		callback();
 	}
 }
 
-var getStamps = function() {
+var getStamps = function(callback) {
 	var stamps_query = new Parse.Query(ParseStamp);
+	stamps_query.ascending("stampid");
 	stamps_query.find({
 		success: function(results) {
-			var out = transferQueryOut();
+			/*for (var i = 0; i < results.length; i++) { 
+				stamps_ids[i] = results[i].id;
+			}*/
+			//console.log(JSON.stringify(results[0]));
+			for (var i = 0; i < results.length; i++) {
+				var stamp = new Stamp({
+					id: results[i].get("stampid"),
+					collection: results[i].get("collection"),
+					name: results[i].get("name"),
+					price: results[i].get("price"),
+					objectid: ""
+				});
+				stamp.objectid = results[i].id,
+				stamps_from_query[i] = stamp;
+				console.log(stamp.objectid);
+				//console.log(JSON.stringify(stamp));
+			}
+			callback();
+			//var out = transferQueryOut();
 		},
 		error: function(error) {
 		}
@@ -163,7 +187,7 @@ var getUserCurrentStamp = function() {
 var transferQueryOut = function(results) {
 	stamps_from_query = results;
 	//console.log(JSON.stringify(stamps_from_query));
-	for (var i = 0; i < stamps_from_query.length; i++) {
+	for (var i = 0; i < results.length; i++) {
 		var stamp = new Stamp({
 			objid: stamps_from_query[i].get("id"),
 			id: stamps_from_query[i].get("stampid"),
@@ -171,9 +195,11 @@ var transferQueryOut = function(results) {
 			name: stamps_from_query[i].get("name"),
 			price: stamps_from_query[i].get("price")
 		});
+		stamps_from_query[i] = stamp;
+		//stamps_ids[i] = stamps_from_query[i].get("id");
 		console.log(JSON.stringify(stamp));
 	}
-	return stamps_from_query;
+	//return stamps_from_query;
 }
 
 
@@ -190,33 +216,35 @@ var submitAuthFormButton;
 var onAuthModalOpen = function() {
 	LOGIN_MODE = "SIGNIN";
 	
-	$('#login-email-linker').text(gmail.get.user_email());
+	$('#login-modal').css('display','inherit');
+	$('#error-display').css('display', 'none');
+	//$('#login-email-linker').text(gmail.get.user_email());
 
 	signInButton = $('.signin-button');
-	signUpButton = $('.signup-button');
+	//signUpButton = $('.signup-button');
 	submitAuthFormButton = $('.login-button');
 	
-	signInButton.on("click", onSignInButtonClick);
+	//signInButton.on("click", onSignInButtonClick);
 	/*signInButton.on("mouseover", function(){
 		$(this).css('background','#222');
 	});
 	signInButton.on("mouseleave", function(){
 		$(this).css('background','#333');
 	});*/
-	signUpButton.on("click", onSignUpButtonClick);
+	/*signUpButton.on("click", onSignUpButtonClick);
 	signUpButton.on("hover", function(){
 		$(this).css('background','#222');
-	});
+	});*/
 	/*signUpButton.on("mouseleave", function(){
 		$(this).css('background','#333');
 	});*/
 	submitAuthFormButton.on("click", onSubmitAuthFormButtonClick);
 	
-	signInButton.css("color","#333");
+	/*signInButton.css("color","#333");
 	signInButton.css("background","#eee");
 	var cP = $('#confirmPassword');
 	cP.prop('disabled', true);
-	cP.css('opacity','0.5');
+	cP.css('opacity','0.5');*/
 }
 var onSignInButtonClick = function() {
 	LOGIN_MODE = "SIGNIN";
@@ -286,16 +314,25 @@ var signIn = function() {
 		logInSuccess("SUCCESSFULLY LOGGED IN");
 	  },
 	  error: function(user, error) {
-		alert("Error: FAILED TO SIGN IN! " + error.code + " " + error.message);
+		var ed = $('#error-display');
+		ed.children().first().text("Wrong username or password");
+		ed.fadeIn("fast");
+		//alert("Error: FAILED TO SIGN IN! " + error.code + " " + error.message);
 		// The login failed. Check error to see why.
 	  }
 	});
 }
 var logInSuccess = function(t) {
 	LOGIN_MODE = "ACTIVE";
-	// Hooray! Let them use the app now.
-	alert(t);
-	removeId('#gmailJsHelperModalWindow');
+	
+	var ed = $('#error-display');
+	ed.css('background','#00bb33').children().first().text(t);
+	ed.fadeIn("fast", function(){
+		setTimeout(function(){
+		  $('#login-modal').css('display','none');
+		}, 1500);
+	});
+	//removeId('#gmailJsHelperModalWindow');
 }
 
 var logOut = function() {
@@ -337,6 +374,14 @@ console.log(JSON.stringify(stamp2));
 console.log(JSON.stringify(stamp1));*/
 
 //location.reload(); //reload the page
+
+var displayCurrentIndex = function(index) {
+	var stampToAdd = stamps_from_query[index];
+	//alert(index);
+	addStampToUser(stampToAdd, function(){ //doesn't work!!!
+		alert("stamp added");
+	});
+}
 
 //--------Gallery START----------------------//
 $.fn.backbone = function() {
@@ -433,10 +478,22 @@ $.fn.backbone = function() {
 						.prop('id', "stamp-image");
 				var thumbnail_add_stamp_button = $('<img>')
 						.prop('src', 'https://rawgit.com/bastovd/stampz/master/add-button.png')
-						.prop('id', "add-stamp-button");
+						.prop('id', "add-stamp-button")
+						.css('display','none')
+						.click(function() {
+							displayCurrentIndex(index);
+						});
+				var thumbnail_type_toggle_button = $('<img>')
+						.prop('src', 'https://rawgit.com/bastovd/stampz/master/type-toggle-frame.png')
+						.prop('id', "toggle-stamp-button")
+						.css('display','none')
+						.click(function() {
+							displayCurrentIndex(photo.get('thumbnail'));
+						});
 				
 				thumbnail.append(thumbnail_stamp);
 				thumbnail.append(thumbnail_add_stamp_button);
+				//thumbnail.append(thumbnail_type_toggle_button);
 				
                 imgs.push(thumbnail);
             });
@@ -448,6 +505,12 @@ $.fn.backbone = function() {
         },
         
         click: function(event) {
+			this.$el.children().each(function() {
+				$(this).children().last().css('display','none');
+				//$(this).children()[1].style.display = 'none';
+			});
+			$(event.currentTarget).children().last().css('display','inherit');
+			//$(event.currentTarget).children()[1].style.display = 'inherit';
             this.collection.goTo($(event.currentTarget).data('index'));
         },
         
@@ -463,6 +526,10 @@ $.fn.backbone = function() {
             });
         }
     });
+	
+	var AddStampButtonView = Backbone.View.extend({
+	
+	});
     
     /*var IteratorButtonView = Backbone.View.extend({
         events: {
@@ -512,21 +579,28 @@ $.fn.backbone = function() {
         
         initialize: function() {
             this.photos = new Photos();
-			var stampids = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,0,1,2,3,4,5,6,7];//getStamps();
+			
+			//var stampids = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,0,1,2,3,4,5,6,7];//getStamps();
+			var stampids = [];
+			for (var i = 0; i < stamps_from_query.length; i++) {
+				stampids[i] = stamps_from_query[i].id;
+				//alert(stampids[i]);
+			}
+			
 			var fotos = [];
 			for (var i = 0; i < stampids.length; i++) {
 				fotos[i] = { thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' };
 			}
 			
 			this.photos.add(fotos);
-            
-            this.large = new LargeView({
-                collection: this.photos
-            });
-            
-            this.thumbnails = new ThumbnailsView({
-                collection: this.photos
-            });
+				
+			this.large = new LargeView({
+				collection: this.photos
+			});
+			
+			this.thumbnails = new ThumbnailsView({
+				collection: this.photos
+			});
             
             /*this.previous = new PreviousView({
                 collection: this.photos
@@ -545,7 +619,14 @@ $.fn.backbone = function() {
         }
     });
 
-    new AppView().render();
+	getStamps( function(){
+		new AppView().render();	
+	});
 }; 
 //--------Gallery END--------------------//
 
+/*------SITE WORKFLOW--------*/
+logOut();
+if (!checkCurrentUser()){
+	onAuthModalOpen();
+}
