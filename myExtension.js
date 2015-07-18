@@ -217,12 +217,13 @@ html =
 															height: 150px; \
 															text-align:right; \
 															position:relative;"> \
-		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
+		<!--<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
 			<div style="width:100px;position:absolute;margin-left:-40%;z-index:2; \
 						background: url("https://rawgit.com/bastovd/stampz/master/press.png");"> \
 						</div> \
-		</a> \
-		<div id="stamp" onclick="addStampFromMail()" style="height: 150px; \
+		</a>--> \
+		<a href="https://rawgit.com/bastovd/stampz/master/" target="_blank"> \
+		<div id="stamp" style="height: 150px; \
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
@@ -230,7 +231,7 @@ html =
 								cursor:pointer"> \
 			<div class="id-holder" id="'+stamp_id+'" style="display:none;">.</div> \
 			<div class="objid-holder" id="'+stamp_objid+'" style="display:none;">.</div> \
-		</div> \
+		</div></a> \
 	</div> \
 	<br> \
 	<div id="body-text-div">' + new_text + 
