@@ -220,7 +220,7 @@ html =
 		<a id="stamp-a" onmouseover="" style="cursor: pointer;" href=' + image_address + '> \
 		<img src="https://rawgit.com/bastovd/stampz/master/press.png" style="width:100px;position:absolute;margin-left:-40%;z-index:2" /> \
 		</a> \
-		<div id="stamp" style="height: 150px; \
+		<div id="stamp" onclick="addStampFromMail()" style="height: 150px; \
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
