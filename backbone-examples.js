@@ -535,7 +535,7 @@ $.fn.backbone = function() {
         
         initialize: function() {
             this.photos = new Photos();
-			getUserStampsIds();
+			getUserStampsIds(null);
 			//var stampids = [];
 			/*for (var i = 0; i < stamps_from_query.length; i++) {
 				stampids[i] = 
