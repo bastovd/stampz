@@ -6,6 +6,11 @@
     font-family: MoonBold;
     src: url('Moon Bold.otf');
 }
+@font-face {
+    font-family: Pier;
+    src: url('pier-regular.otf');
+}
+
 
 body {
 	margin:0px;
@@ -284,7 +289,7 @@ b {
 
 .info {
 	width:100%;
-	height:200px;
+	text-align: center;
 }
 .info[id="about"]{
 	background: #eee;
@@ -297,4 +302,16 @@ b {
 }
 .info[id="contact"]{
 	background: #333;
+}
+h1 {
+  font-family: MoonBold;
+  color: #333;
+  font-size: 28px;
+  padding: 35px;
+}
+.info-text {
+  padding: 60px;
+  padding-top: 0px;
+  font-family: Moon;
+  font-size:14;
 }
