@@ -1,3 +1,7 @@
+#stamp {
+	cursor:pointer;
+}
+
 #main-container {
 	position : absolute;
 	min-width : 750px;

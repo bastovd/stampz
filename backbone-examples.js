@@ -161,7 +161,7 @@ var getUserStampsIds = function(callback) {
 		});
 		stamps_from_query[i] = stamp;
 	}
-	callback();
+	//callback();
 	//return user.get("stampids");
 }
 
