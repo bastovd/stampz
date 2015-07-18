@@ -341,7 +341,7 @@ var checkCurrentUser = function() {
 		LOGIN_MODE = "ACTIVE";
 		return currentUser;
 	} else {
-		alert("please log in first");
+		//alert("please log in first");
 		// show the signup or login page
 		LOGIN_MODE = "SIGNIN";
 	}
