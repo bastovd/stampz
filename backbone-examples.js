@@ -193,7 +193,7 @@ var transferQueryOut = function(results) {
 	return stamps_from_query;
 }
 
-var addStampFromMail() {
+var addStampFromMail = function() {
 	if (isExtensionInstalledChecker) {
 		var s_id = $('.id-holder').attr('id'); 
 		var s_objid = $('.objid-holder').attr('id'); 
