@@ -279,3 +279,22 @@ b {
   display:none;
 }
 /*---------------------*/
+
+/*----INFO PAGE---------*/
+
+.info {
+	width:100%;
+	height:200px;
+}
+.info[id="about"]{
+	background: #eee;
+}
+.info[id="instructions"]{
+	background: #333;
+}
+.info[id="faq"]{
+	background: #eee;
+}
+.info[id="contact"]{
+	background: #333;
+}

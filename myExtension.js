@@ -65,7 +65,7 @@ var runCode = function() {
 		}, '');
 		///////////////////////////
 		
-        compose.subject('THIS TEST');
+        compose.subject('subject');
         compose.body(html);
     },0);
   });
