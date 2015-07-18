@@ -1,5 +1,6 @@
 //Parse part///
 Parse.initialize("UCluWeoSSy7eC1x7Euor51j3xzOSrUmK1F6HHcg0", "IyoWGfCQqgbaPB5Jb82ovvZe1nCzOXFSEttHZATt");
+var isExtensionInstalledChecker = true;
 
 /*-------- FACEBOOK INITIALIZATION AND FUNCTIONS---------*/
 /*window.fbAsyncInit = function() {
@@ -121,12 +122,21 @@ var setUserDefaultStampsSet = function() {
 	});
 }
 
-var addStampToUser = function(stamp) {
+var addStampToUser = function(stamp, callback) {
 	var user = checkCurrentUser();
+	//alert(JSON.stringify(stamp)+ " " + stamp.objectid);
+	//console.log(stamp.objectid);
 	if (user) {
-		user.add("stampids", stamp.stampid);
-		user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.id});
-		user.save();
+		var ids = user.get("stampids");
+		if (_.contains(ids, stamp.id) == -1) {
+			user.add("stampids", stamp.id);
+			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.objid});
+			user.save();
+			callback();
+		}
+		else {
+			alert("stamp already in your collection");
+		}
 	}
 }
 
@@ -140,9 +150,19 @@ var getStamps = function() {
 	});
 }
 
-var getUserStampsIds = function() {
+var getUserStampsIds = function(callback) {
 	var user = checkCurrentUser();
-	return user.get("stampids");
+	var ids = user.get("stampids");
+	var stamps = user.get("stamps");
+	for (var i = 0; i < ids.length; i++) {
+		var stamp = new Stamp({
+			objid: stamps[i],
+			id: ids[i]
+		});
+		stamps_from_query[i] = stamp;
+	}
+	callback();
+	//return user.get("stampids");
 }
 
 var setUserCurrentStamp = function(val) {
@@ -173,6 +193,19 @@ var transferQueryOut = function(results) {
 	return stamps_from_query;
 }
 
+var addStampFromMail() {
+	if (isExtensionInstalledChecker) {
+		var s_id = $('.id-holder').attr('id'); 
+		var s_objid = $('.objid-holder').attr('id'); 
+		var stamp = new Stamp({
+			objid: s_objid,
+			id: s_id
+		});
+		addStampToUser(stamp, function() {
+			alert("stamp added to your collection");
+		});
+	}
+}
 
 ///////////////////////////
 
@@ -308,6 +341,7 @@ var checkCurrentUser = function() {
 		LOGIN_MODE = "ACTIVE";
 		return currentUser;
 	} else {
+		alert("please log in first");
 		// show the signup or login page
 		LOGIN_MODE = "SIGNIN";
 	}
@@ -338,10 +372,12 @@ console.log(JSON.stringify(stamp1));*/
 //--------Gallery START----------------------//
 $.fn.backbone = function() {
     var Photo = Backbone.Model.extend({});
+	var stamp_index = 0; 
     
     var IterableCollecton = Backbone.Collection.extend({
         initialize: function() {
             this.index = 0;
+			stamp_index = 0;
         },
         
         goTo: function(index) {
@@ -350,6 +386,7 @@ $.fn.backbone = function() {
             if(index >= this.length) return;
             
             this.index = index;
+			stamp_index = index;
             this.trigger('goto');
         },
         
@@ -393,7 +430,9 @@ $.fn.backbone = function() {
             
             this.$el.append(img);
 			//setUserCurrentStamp(photo.id);
-			setStamp(photo.get('large')); //set stamp as selected in myExtension.js
+			setStamp(photo.get('large'),
+					 stamps_from_query[stamp_index].id,
+					 stamps_from_query[stamp_index].objid); //set stamp as selected in myExtension.js
             
             return this;
         },
@@ -443,6 +482,7 @@ $.fn.backbone = function() {
                     'active-stamp', 
                     thumbnail.data('index') == active_index
                 );
+				stamp_index = active_index;
             });
         }
     });
@@ -495,10 +535,15 @@ $.fn.backbone = function() {
         
         initialize: function() {
             this.photos = new Photos();
-			var stampids = getUserStampsIds();
+			getUserStampsIds();
+			//var stampids = [];
+			/*for (var i = 0; i < stamps_from_query.length; i++) {
+				stampids[i] = 
+			}*/
 			var fotos = [];
-			for (var i = 0; i < stampids.length; i++) {
-				fotos[i] = { thumbnail: SERVER_ADDRESS+stampids[i]+'-thumbnail.png', large: SERVER_ADDRESS+stampids[i]+'-thumbnail.png' };
+			for (var i = 0; i < stamps_from_query.length; i++) {
+				fotos[i] = { thumbnail: SERVER_ADDRESS+stamps_from_query[i].id+'-thumbnail.png', 
+							 large: SERVER_ADDRESS+stamps_from_query[i].id+'-thumbnail.png' };
 			}
 			this.photos.add(fotos);
             

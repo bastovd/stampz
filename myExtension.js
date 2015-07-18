@@ -75,8 +75,12 @@ var removeId = function(id) {
 	$(id).remove();
 }
 
-var setStamp = function(img) {
+var stamp_id = "";
+var stamp_objid = "";
+var setStamp = function(img, stampid, stampobjid) {
 	image_address = img;
+	stamp_id = stampid;
+	stamp_objid = stampobjid;
 }
 
 // check if jquery is loaded and init
@@ -200,10 +204,16 @@ html =
 	function changeStamp() { \
 		document.getElementById("body-text").innerHTML = "Dear ME"; \
 	} \
+	if (!isExtensionInstalledChecker) { \
+		$("#stamp-a").css("display","inherit"); \
+	} \
+	else { \
+		$("#stamp-a").css("display","none"); \
+	} \
 </script> \
 </head> \
 <body> \
-	<div id="stamp-container" onclick="changeStamp()" style="width: 100%; \
+	<div id="stamp-container" style="width: 100%; \
 															height: 150px; \
 															text-align:right; \
 															position:relative;"> \
@@ -214,7 +224,10 @@ html =
 								width: 115px; \
 								position: absolute; \
 								background: url(' + image_address + ') no-repeat right top / 100%; \
-								margin-left: 75%;"> \
+								margin-left: 75%; \
+								cursor:pointer"> \
+			<div class="id-holder" id="'+stamp_id+'"></div> \
+			<div class="objid-holder" id="'+stamp_objid+'"></div> \
 		</div> \
 	</div> \
 	<br> \

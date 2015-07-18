@@ -123,16 +123,25 @@ var setUserDefaultStampsSet = function() {
 	});
 }
 
+var stamp_added_text = "";
 var addStampToUser = function(stamp, callback) {
 	var user = checkCurrentUser();
 	//alert(JSON.stringify(stamp)+ " " + stamp.objectid);
 	//console.log(stamp.objectid);
 	
 	if (user) {
-		user.add("stampids", stamp.id);
-		user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.objectid});
-		user.save();
-		callback();
+		var ids = user.get("stampids");
+		if (_.contains(ids, stamp.id) == -1) {
+			user.add("stampids", stamp.id);
+			user.add("stamps", {"__type":"Pointer","className":"Stamp","objectId":stamp.objectid});
+			user.save();
+			stamp_added_text = "stamp added to your collection";
+			callback();
+		}
+		else {
+			stamp_added_text = "stamp already in your collection";
+			callback();
+		}
 	}
 }
 
@@ -380,7 +389,7 @@ var displayCurrentIndex = function(index) {
 	//alert(index);
 	addStampToUser(stampToAdd, function(){ 
 		var notification_display = $('#notification-display');
-		notification_display.children().first().text("stamp added to your collection");
+		notification_display.children().first().text(stamp_added_text);
 		notification_display.fadeIn("fast", function(){
 			setTimeout(function(){
 			  notification_display.fadeOut("fast");
