@@ -229,8 +229,8 @@ html =
 								background: url(' + image_address + ') no-repeat right top / 100%; \
 								margin-left: 75%; \
 								cursor:pointer"> \
-			<div class="id-holder" id="'+stamp_id+'" style="display:none;">.</div> \
-			<div class="objid-holder" id="'+stamp_objid+'" style="display:none;">.</div> \
+			<!--<div class="id-holder" id="'+stamp_id+'" style="display:none;">.</div> \
+			<div class="objid-holder" id="'+stamp_objid+'" style="display:none;">.</div>--> \
 		</div></a> \
 	</div> \
 	<br> \
