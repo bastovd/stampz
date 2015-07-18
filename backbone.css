@@ -63,11 +63,12 @@
 	margin-right : 10%;
 }
 p {
-	font-family : Moon;
+	font-family : inherit;
 }
 #email-p {
 	font-size : 9pt;
 	color : #eee;
+	font-family: Moon;
 }
 #store-p {
 	font-family : MoonBold;
